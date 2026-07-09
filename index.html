@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>A.I.C. Madeira — Associação Internacional da Caridade</title>
+<meta name="description" content="Dar assistência e promover a pessoa humana. Associação leiga e católica de voluntariado contra a pobreza e a exclusão social, presente na Madeira desde 1876.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="A.I.C. Madeira — Associação Internacional da Caridade">
+<meta property="og:description" content="Dar assistência e promover a pessoa humana. Na Madeira desde 1876.">
+<meta property="og:image" content="https://aicmadeira.pt/assets/logo.png">
+<meta property="og:locale" content="pt_PT">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  body { font-family:'Karla',sans-serif; color:#2E2A26; }
+  a { color:#C0452B; }
+  a:hover { color:#A63A23; }
+</style>
+</helmet>
+<dc-import name="Header" active="inicio" hint-size="100%,76px"></dc-import>
+
+<main data-screen-label="Início">
+  <!-- Hero -->
+  <section style="background:#FAF7F2">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(48px,8vw,88px) 24px clamp(40px,7vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <span style="font-family:'Karla',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C0452B">Associação Internacional da Caridade · Madeira</span>
+        <h1 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:clamp(36px,6vw,56px);line-height:1.12;color:#2E2A26;text-wrap:pretty">Dar assistência &amp; promover a pessoa humana.</h1>
+        <p style="margin:0;font-size:18px;line-height:1.65;color:#6F675E;max-width:520px;text-wrap:pretty">Somos uma associação leiga, católica e voluntária que trabalha contra todas as formas de pobreza e exclusão social. Presente na Madeira desde 1876.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:8px">
+          <a href="contribuicoes.html" style="font-family:'Karla',sans-serif;font-size:16px;font-weight:700;color:#FFFFFF;background:#C0452B;text-decoration:none;padding:14px 30px;border-radius:999px" style-hover="background:#A63A23">Contribuir</a>
+          <a href="instituicao.html" style="font-family:'Karla',sans-serif;font-size:16px;font-weight:700;color:#2E2A26;background:transparent;border:1.5px solid #D9CFC1;text-decoration:none;padding:14px 30px;border-radius:999px" style-hover="border-color:#C0452B;color:#C0452B">Conhecer a instituição</a>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center">
+        <div style="background:#FFFFFF;border:1px solid #EAE2D6;border-radius:24px;padding:clamp(32px,4vw,48px) clamp(24px,3.5vw,40px);box-shadow:0 20px 50px -30px rgba(46,42,38,0.25);display:flex;flex-direction:column;align-items:center;gap:18px;max-width:340px">
+          <img src="assets/logo.png" alt="Logótipo A.I.C. — três figuras erguendo o mundo" style="width:220px;height:auto;display:block">
+          <p style="margin:0;font-family:'Lora',serif;font-style:italic;font-size:17px;line-height:1.6;color:#6F675E;text-align:center">«Contra as pobrezas, agir juntas.»</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#2E2A26">
+      <div style="max-width:1120px;margin:0 auto;padding:44px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:32px">
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center">
+          <span style="font-family:'Lora',serif;font-size:38px;font-weight:600;color:#FAF7F2">1617</span>
+          <span style="font-size:14px;color:#B5ACA0">Fundada por S. Vicente de Paulo</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center">
+          <span style="font-family:'Lora',serif;font-size:38px;font-weight:600;color:#FAF7F2">1876</span>
+          <span style="font-size:14px;color:#B5ACA0">Início na Madeira</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center">
+          <span style="font-family:'Lora',serif;font-size:38px;font-weight:600;color:#FAF7F2">200.000</span>
+          <span style="font-size:14px;color:#B5ACA0">Voluntários no mundo</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center">
+          <span style="font-family:'Lora',serif;font-size:38px;font-weight:600;color:#FAF7F2">4</span>
+          <span style="font-size:14px;color:#B5ACA0">Continentes</span>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- About preview -->
+  <section style="background:#FFFFFF;border-top:1px solid #EAE2D6;border-bottom:1px solid #EAE2D6">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(48px,8vw,88px) 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="width:100%;height:380px">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hospicio-home" shape="rounded" radius="20" placeholder="Foto: Hospício Princesa D. Maria Amélia" hint-size="100%,380px"></x-import>
+        </div>
+        <span style="font-size:13.5px;color:#8F867B;font-style:italic">Hospício da Princesa Dona Maria Amélia — a nossa sede desde 1876.</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C0452B">Quem somos</span>
+        <h2 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:clamp(28px,4.5vw,36px);line-height:1.2;color:#2E2A26;text-wrap:pretty">A mais antiga associação leiga feminina do voluntariado.</h2>
+        <p style="margin:0;font-size:16.5px;line-height:1.7;color:#6F675E;text-wrap:pretty">Fundada em 1617 por São Vicente de Paulo e Santa Luiza de Marillac, a AIC é hoje uma rede internacional de projetos contra a pobreza, com estatuto consultivo junto da UNESCO, do ECOSOC e do Parlamento Europeu.</p>
+        <p style="margin:0;font-size:16.5px;line-height:1.7;color:#6F675E;text-wrap:pretty">Na Madeira, reunimo-nos desde 22 de janeiro de 1876 no Hospício Princesa Dona Maria Amélia, ao serviço dos mais carenciados da nossa ilha.</p>
+        <a href="instituicao.html" style="font-size:16px;font-weight:700;color:#C0452B;text-decoration:none;margin-top:4px" style-hover="color:#A63A23">Conhecer a nossa história →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como ajudar -->
+  <sc-if value="{{ showHelpCards }}" hint-placeholder-val="{{ true }}">
+    <section style="background:#FAF7F2">
+      <div style="max-width:1120px;margin:0 auto;padding:clamp(48px,8vw,88px) 24px;display:flex;flex-direction:column;gap:40px">
+        <div style="display:flex;flex-direction:column;gap:12px;max-width:560px">
+          <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C0452B">Como ajudar</span>
+          <h2 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:clamp(28px,4.5vw,36px);line-height:1.2;color:#2E2A26">O seu apoio chega a quem mais precisa.</h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px">
+          <a href="contribuicoes.html" style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #EAE2D6;border-radius:20px;padding:36px;text-decoration:none" style-hover="border-color:#C0452B">
+            <span style="font-family:'Lora',serif;font-size:24px;font-weight:600;color:#2E2A26">Doação</span>
+            <p style="margin:0;font-size:15.5px;line-height:1.65;color:#6F675E">Contribua por transferência bancária. Se pretender declaração para dedução no IRS, basta enviar-nos um e-mail com os seus dados e o valor transferido.</p>
+            <span style="font-size:15px;font-weight:700;color:#C0452B;margin-top:auto">Como doar →</span>
+          </a>
+          <a href="contribuicoes.html" style="display:flex;flex-direction:column;gap:14px;background:#FFFFFF;border:1px solid #EAE2D6;border-radius:20px;padding:36px;text-decoration:none" style-hover="border-color:#C0452B">
+            <span style="font-family:'Lora',serif;font-size:24px;font-weight:600;color:#2E2A26">Consignação de IRS</span>
+            <p style="margin:0;font-size:15.5px;line-height:1.65;color:#6F675E">Sem custo para si: indique o nosso NIF <strong style="color:#2E2A26">511072031</strong> no quadro 9 do anexo H da sua declaração de IRS.</p>
+            <span style="font-size:15px;font-weight:700;color:#C0452B;margin-top:auto">Saber mais →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <!-- CTA band -->
+  <section style="background:#C0452B">
+    <div style="max-width:1120px;margin:0 auto;padding:64px 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.75)">Contribua</span>
+        <h2 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:clamp(26px,4vw,32px);color:#FFFFFF">Apoie-nos na nossa missão.</h2>
+      </div>
+      <a href="contribuicoes.html" style="font-size:16px;font-weight:700;color:#C0452B;background:#FFFFFF;text-decoration:none;padding:14px 34px;border-radius:999px" style-hover="background:#FAF7F2">Contribuir</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secções&quot;},&quot;showHelpCards&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secções&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showStats: this.props.showStats ?? true,
+      showHelpCards: this.props.showHelpCards ?? true
+    };
+  }
+}
+</script>
+</body>
+</html>

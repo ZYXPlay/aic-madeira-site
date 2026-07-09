@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Documentos — A.I.C. Madeira</title>
+<meta name="description" content="Estatutos, relatórios de contas e outra documentação institucional da Associação Internacional de Caridade da Madeira. Transparência é parte da nossa missão.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Documentos — A.I.C. Madeira">
+<meta property="og:description" content="Estatutos, relatórios de contas e documentação institucional.">
+<meta property="og:image" content="https://aicmadeira.pt/assets/logo.png">
+<meta property="og:locale" content="pt_PT">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  html, body { margin:0; padding:0; background:#FAF7F2; }
+  body { font-family:'Karla',sans-serif; color:#2E2A26; }
+  a { color:#C0452B; }
+  a:hover { color:#A63A23; }
+</style>
+</helmet>
+<dc-import name="Header" active="documentos" hint-size="100%,76px"></dc-import>
+
+<main data-screen-label="Documentos">
+  <!-- Page hero -->
+  <section style="background:#FAF7F2;border-bottom:1px solid #EAE2D6">
+    <div style="max-width:1120px;margin:0 auto;padding:clamp(44px,7vw,72px) 24px clamp(36px,5.5vw,56px);display:flex;flex-direction:column;gap:16px">
+      <span style="font-size:13px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#C0452B">Documentos</span>
+      <h1 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:clamp(32px,5.5vw,48px);line-height:1.15;color:#2E2A26;max-width:760px;text-wrap:pretty">Transparência é parte da nossa missão.</h1>
+      <p style="margin:0;font-size:17.5px;line-height:1.65;color:#6F675E;max-width:620px;text-wrap:pretty">Consulte aqui os nossos estatutos, relatórios de contas e outra documentação institucional.</p>
+    </div>
+  </section>
+
+  <section style="background:#FFFFFF">
+    <div style="max-width:840px;margin:0 auto;padding:72px 24px;display:flex;flex-direction:column;gap:48px">
+      <sc-if value="{{ aCarregar }}" hint-placeholder-val="{{ true }}">
+        <p style="margin:0;font-size:16px;color:#8F867B">A carregar documentos…</p>
+      </sc-if>
+      <sc-if value="{{ semConfig }}" hint-placeholder-val="{{ false }}">
+        <div style="background:#FAF7F2;border:1px dashed #D9CFC1;border-radius:14px;padding:24px 28px">
+          <p style="margin:0;font-size:15px;line-height:1.65;color:#6F675E"><strong style="color:#2E2A26">Configuração necessária:</strong> indique o repositório GitHub (formato <span style="font-family:monospace">utilizador/repositorio</span>) no painel de ajustes desta página. Os PDF colocados na pasta <span style="font-family:monospace">documentos/</span> do repositório aparecerão aqui automaticamente.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ semDocs }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;font-size:16px;color:#6F675E">De momento não há documentos publicados.</p>
+      </sc-if>
+      <sc-if value="{{ comErro }}" hint-placeholder-val="{{ false }}">
+        <p style="margin:0;font-size:16px;color:#6F675E">Não foi possível carregar a lista de documentos. Tente novamente mais tarde ou contacte-nos através de <a href="mailto:aic.funchal@gmail.com" style="font-weight:700;color:#C0452B;text-decoration:none">aic.funchal@gmail.com</a>.</p>
+      </sc-if>
+      <sc-for list="{{ grupos }}" as="grupo" hint-placeholder-count="0">
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <h2 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:26px;color:#2E2A26">{{ grupo.titulo }}</h2>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ grupo.docs }}" as="doc" hint-placeholder-count="3">
+              <a href="{{ doc.href }}" style="display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#FAF7F2;border:1px solid #EAE2D6;border-radius:14px;padding:18px 22px;text-decoration:none" style-hover="border-color:#C0452B">
+                <span style="font-family:'Lora',serif;font-size:13px;font-weight:700;color:#C0452B;background:#F3E9DF;border-radius:8px;padding:8px 10px;letter-spacing:0.04em">PDF</span>
+                <span style="display:flex;flex-direction:column;gap:2px">
+                  <span style="font-size:16px;font-weight:700;color:#2E2A26">{{ doc.nome }}</span>
+                  <span style="font-size:13.5px;color:#8F867B">{{ doc.detalhe }}</span>
+                </span>
+                <span style="margin-left:auto;font-size:14.5px;font-weight:700;color:#C0452B">Descarregar ↓</span>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+      <div style="background:#FAF7F2;border:1px dashed #D9CFC1;border-radius:14px;padding:20px 24px">
+        <p style="margin:0;font-size:14.5px;line-height:1.6;color:#8F867B"><strong style="color:#6F675E">Como publicar documentos:</strong> basta adicionar (ou remover) ficheiros PDF na pasta <span style="font-family:monospace">documentos/</span> do repositório GitHub — esta página atualiza-se automaticamente. Nomes com «Estatutos» ou «Relatório/Contas» são agrupados nas respetivas secções.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA band -->
+  <section style="background:#C0452B">
+    <div style="max-width:1120px;margin:0 auto;padding:64px 24px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap">
+      <h2 style="margin:0;font-family:'Lora',serif;font-weight:600;font-size:clamp(26px,4vw,32px);color:#FFFFFF">Apoie-nos na nossa missão.</h2>
+      <a href="contribuicoes.html" style="font-size:16px;font-weight:700;color:#C0452B;background:#FFFFFF;text-decoration:none;padding:14px 34px;border-radius:999px" style-hover="background:#FAF7F2">Contribuir</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="Footer" hint-size="100%,360px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;githubRepo&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://github.com/ZYXPlay/aic-madeira-site&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;GitHub&quot;},&quot;pasta&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;documentos&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;GitHub&quot;}}">
+class Component extends DCLogic {
+  state = { status: 'loading', grupos: [] };
+
+  componentDidMount() {
+    this.loadDocs();
+  }
+
+  async loadDocs() {
+    let repo = this.props.githubRepo ?? 'ZYXPlay/aic-madeira-site';
+    repo = repo.replace(/^https?:\/\/(www\.)?github\.com\//i, '').replace(/\.git$/i, '').replace(/\/+$/, '').trim();
+    const pasta = this.props.pasta ?? 'documentos';
+    if (!repo || repo.indexOf('/') === -1) {
+      this.setState({ status: 'unconfigured' });
+      return;
+    }
+    try {
+      const res = await fetch('https://api.github.com/repos/' + repo + '/contents/' + pasta);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const files = await res.json();
+      const pdfs = files.filter(f => f.type === 'file' && /\.pdf$/i.test(f.name));
+      if (pdfs.length === 0) {
+        this.setState({ status: 'empty' });
+        return;
+      }
+      const docs = pdfs.map(f => {
+        const nome = f.name.replace(/\.pdf$/i, '').replace(/[-_]/g, ' ');
+        const mb = f.size / (1024 * 1024);
+        const tamanho = mb >= 1 ? mb.toFixed(1).replace('.', ',') + ' MB' : Math.round(f.size / 1024) + ' KB';
+        return { nome, detalhe: 'PDF · ' + tamanho, href: pasta + '/' + f.name, norm: nome.toLowerCase() };
+      });
+      const grupos = [
+        { titulo: 'Estatutos', docs: docs.filter(d => d.norm.indexOf('estatuto') !== -1) },
+        { titulo: 'Relatórios de Contas', docs: docs.filter(d => d.norm.indexOf('relat') !== -1 || d.norm.indexOf('contas') !== -1).sort((a, b) => b.nome.localeCompare(a.nome)) },
+        { titulo: 'Outros documentos', docs: docs.filter(d => d.norm.indexOf('estatuto') === -1 && d.norm.indexOf('relat') === -1 && d.norm.indexOf('contas') === -1) }
+      ].filter(g => g.docs.length > 0);
+      this.setState({ status: 'ok', grupos });
+    } catch (err) {
+      this.setState({ status: 'error' });
+    }
+  }
+
+  renderVals() {
+    const s = this.state.status;
+    return {
+      grupos: this.state.grupos,
+      aCarregar: s === 'loading',
+      comDocs: s === 'ok',
+      semConfig: s === 'unconfigured',
+      semDocs: s === 'empty',
+      comErro: s === 'error'
+    };
+  }
+}
+</script>
+</body>
+</html>
