@@ -45,6 +45,11 @@ def main() -> None:
         shutil.copytree(documentos, DIST / "documentos")
         print("  documentos/")
 
+    cname = ROOT / "CNAME"
+    if cname.is_file():
+        shutil.copy(cname, DIST / "CNAME")
+        print("  CNAME")
+
     print("Built dist/")
 
 
