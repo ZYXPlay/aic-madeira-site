@@ -160,7 +160,7 @@ body[data-page="inicio"] [data-nav="inicio"],
 body[data-page="instituicao"] [data-nav="instituicao"],
 body[data-page="documentos"] [data-nav="documentos"],
 body[data-page="contribuicoes"] [data-nav="contribuicoes"],
-body[data-page="contatos"] [data-nav="contatos"] {
+body[data-page="contactos"] [data-nav="contactos"] {
   color: var(--terracotta); font-weight: 700; background: var(--active-bg);
 }
 
