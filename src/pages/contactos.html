@@ -80,6 +80,9 @@
         <div class="form-success" hidden>
           <p>Mensagem enviada. Obrigado — responderemos o mais breve possível.</p>
         </div>
+        <!-- Região viva permanente: anuncia o estado do envio a leitores de ecrã
+             (WCAG 2.1 AA — 4.1.3). Fica sempre no DOM; o site.js escreve o texto. -->
+        <p class="sr-only" role="status" data-form-status></p>
         <div class="form-actions">
           <button type="submit" class="btn btn--primary btn--form">Enviar</button>
           <span class="form-error" hidden>Não foi possível enviar. Tente novamente ou escreva para aic.funchal@gmail.com.</span>

@@ -485,6 +485,11 @@
         "name": "The Sixteen-Pixel Input Rule",
         "body": "Text inputs never drop below 16px. Below that, iOS Safari zooms the viewport on focus, which on a form the visitor is already navigating by keyboard is a real usability failure rather than a cosmetic one.",
         "section": "typography"
+      },
+      {
+        "name": "The Announce-Don't-Reveal Rule",
+        "body": "Status changes reach screen readers through a permanent role=\"status\" region that is in the accessibility tree from page load and receives text when state changes. Revealing a styled panel that carries the role is not enough: a live region appearing at the same moment as its content is not reliably announced. The visible panel and the announcement are separate jobs.",
+        "section": "components"
       }
     ],
     "dos": [
@@ -497,7 +502,8 @@
       "Do let new interactive elements inherit the site-wide :focus-visible ring (2px Terracotta Red at 2px offset), and check it clears 3:1 against whatever ground it lands on — invert it to white or Parchment on dark and terracotta grounds.",
       "Do state absent imagery with the dashed photo frame and a caption naming what belongs there.",
       "Do carry text-wrap: pretty onto any new display or prose class.",
-      "Do keep text inputs at 16px or above, so iOS Safari does not zoom the viewport on focus."
+      "Do keep text inputs at 16px or above, so iOS Safari does not zoom the viewport on focus.",
+      "Do announce dynamic state through the permanent .sr-only role=\"status\" region, not by revealing a styled panel alone."
     ],
     "donts": [
       "Don't add a box-shadow. The system is flat; change the ground or add a border instead.",

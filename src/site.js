@@ -30,12 +30,20 @@
     var errorMsg = form.querySelector('.form-error');
     var actions = form.querySelector('.form-actions');
     var button = form.querySelector('button[type="submit"]');
+    var status = form.querySelector('[data-form-status]');
+
+    /* Anuncia o estado a leitores de ecrã. O texto vem dos próprios painéis,
+       para a cópia em português viver só no HTML. */
+    var announce = function (msg) {
+      if (status) status.textContent = msg;
+    };
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       errorMsg.hidden = true;
       button.disabled = true;
       button.textContent = 'A enviar…';
+      announce(button.textContent);
       var data = new FormData(form);
       fetch('https://formspree.io/f/' + FORMSPREE_ID, {
         method: 'POST',
@@ -53,11 +61,13 @@
           form.reset();
           actions.hidden = true;
           success.hidden = false;
+          announce(success.textContent.trim());
         })
         .catch(function () {
           errorMsg.hidden = false;
           button.disabled = false;
           button.textContent = 'Enviar';
+          announce(errorMsg.textContent.trim());
         });
     });
   }

@@ -370,6 +370,7 @@ Components are **softly tactile**: generous radii, roomy padding, fully-rounded 
 - **Placeholder:** Stone (`{colors.muted}`) at 5.6:1 on white — distinct from entered text, which is Ink.
 - **Success:** A dedicated panel replaces the submit row on send — Success ground, `1px` Success Border, `{rounded.md}`, Karla 700 in Success Ink.
 - **Error:** Inline Terracotta Deep text at 14px 700, beside the submit button.
+- **Announcement:** a permanent `role="status"` region, visually hidden with `.sr-only`, sits inside the form and receives the panel's text when state changes. The visible panels are for sighted users; the region is what screen readers hear. Never rely on revealing a styled panel alone — a live region that appears at the same moment as its content is not reliably announced.
 
 ### Navigation
 
@@ -377,7 +378,7 @@ Components are **softly tactile**: generous radii, roomy padding, fully-rounded 
 - **Desktop links** (≥1024px): Karla 500 at 15px in Ink, `8px 12px` padding, `{rounded.xs}` radius. Hover shifts text to Terracotta Red. The active page gets Terracotta Red text at 700 on an Active Wash ground, driven by a `body[data-page]` / `[data-nav]` attribute pair rather than a class.
 - **Nav CTA:** A terracotta pill sitting outside the link rhythm, present in both navigations.
 - **Mobile** (<1024px): A 46px square toggle with `1.5px` Border Strong stroke and `{rounded.md}` radius, whose three bars animate into a cross (`0.2s` on transform and opacity — the only transition in the entire system). The open panel is a full-width Aged Paper column beneath the header, links at 17px with `13px 14px` padding.
-- **State gap:** the toggle carries `aria-expanded` but no `aria-controls`, and the panel is shown by `display` toggling rather than a disclosure pattern.
+- **Disclosure:** the toggle carries `aria-expanded` and `aria-controls="nav-mobile"`; the panel is revealed by `display` toggling, so exactly one navigation landmark is in the accessibility tree at any viewport.
 
 ### Statistics Band
 
@@ -407,6 +408,7 @@ Rendered at build time by `build.py` from the contents of `documentos/` — no J
 - **Do** state absent imagery with the dashed photo frame and a caption naming what belongs there.
 - **Do** carry `text-wrap: pretty` onto any new display or prose class.
 - **Do** keep text inputs at 16px or above, so iOS Safari does not zoom the viewport on focus.
+- **Do** announce dynamic state through the permanent `.sr-only` `role="status"` region, not by revealing a styled panel alone.
 
 ### Don't:
 
