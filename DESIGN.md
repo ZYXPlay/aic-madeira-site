@@ -15,6 +15,7 @@ colors:
   on-dark-muted: "#B5ACA0"
   accent-warm: "#D89A6A"
   active-bg: "#F3E9DF"
+  on-active-bg: "#A63A23"
   success-bg: "#EAF3E6"
   success-border: "#BCD9B0"
   success-ink: "#3C6B2E"
@@ -235,7 +236,8 @@ A warm, low-contrast neutral field — paper rather than white — carrying a si
 ### Tertiary
 
 - **Warm Sand** (`{colors.accent-warm}`): Eyebrow labels on ink grounds only, where Terracotta Red would sit too close to the background. Never used on light grounds.
-- **Active Wash** (`{colors.active-bg}`): The palest terracotta tint. Marks the current page in navigation, backs the PDF badge, and fills an empty photo frame. It signals "this one" or "nothing here yet" — never used as a general surface.
+- **Active Wash** (`{colors.active-bg}`): The palest terracotta tint. Marks the current page in navigation, backs the PDF badge, and fills an empty photo frame. It signals "this one" or "nothing here yet" — never used as a general surface. It is the only ground in the system tinted toward the accent, which is precisely why the accent cannot sit on it — see The Deepened Accent Rule.
+- **Deep on Wash** (`{colors.on-active-bg}` — an alias of Terracotta Deep): The text partner for Active Wash, at 5.4:1. Terracotta Deep is otherwise the hover tone; here it is a resting color, because Active Wash is a resting ground.
 
 ### Neutral
 
@@ -255,6 +257,12 @@ A warm, low-contrast neutral field — paper rather than white — carrying a si
 **The Four Grounds Rule.** Every section sits on exactly one of four backgrounds — Aged Paper, White Surface, Ink, or Terracotta Red — and that color runs full-bleed edge to edge. The 1120px container governs inner content only. Never build a colored panel that floats inside a section with page ground visible around it.
 
 **The Signal, Not Surface Rule.** Terracotta Red is a signal color. It may cover a large area exactly once per page, as a full-bleed band. Everywhere else it appears at the scale of a label, a line of text, a badge, or a pill — never as a card fill, never as a section background twice.
+
+**The Deepened Accent Rule.** Terracotta Red never sits on Active Wash. Every ground in the system is neutral except this one, which is tinted toward the accent itself — so the accent loses separation against it and measures **4.25:1**, under the 4.5:1 threshold PRODUCT.md records as binding. On Active Wash the accent deepens to `{colors.on-active-bg}` (5.4:1). This is the same instinct as the hover rule — terracotta deepens, never lightens — applied to a ground instead of a state.
+
+The failure was not a slip. Active Wash shipped with a defined background role and no defined foreground, so the current-page link and the PDF badge each independently reached for the accent and each independently landed at 4.25:1. **Any ground token added to this system names its text partner in the same commit.** The one deliberate exception is documented: the photo-frame caption sits on Active Wash in Stone at 4.64:1 — the tightest passing pair in the system, and a caption rather than an accent, so it must not be deepened into looking like a link. Darkening Active Wash would break it; recheck that pair before touching the token.
+
+**The Accent Carries No Meaning Alone Rule.** Terracotta on a warm ground is intrinsically weak for red-blind vision, and deepening it only softens the problem. Simulated: Deep on Wash measures 5.4:1 normally but **3.4:1 under deuteranopia**, and white on Terracotta Red measures 5.1:1 but **3.0:1**. The neutrals are unaffected — Stone on Active Wash moves 4.64 → 4.58 — because only the accent depends on the red channel. WCAG is met on the real colors, so this is not a defect to fix; it is a limit to design within. Every terracotta signal therefore doubles up: the current page also carries 700 weight and a tinted chip, the PDF badge also spells "PDF" and repeats the format in the metadata line, the eyebrow is also separated by size and letterspacing. **Never let terracotta be the only thing distinguishing two states.** If a new signal cannot be read with the color removed, it is not finished.
 
 **The Two-Floor Rule.** The neutral text ramp has exactly one floor per ground, and nothing lighter exists: **Stone** on light grounds, **Parchment Muted** on ink. There is deliberately no third, quieter step. A previous token, Ash (`#8F867B`), served that role at 3.35:1 on Aged Paper and 3.97:1 on Ink — both under the 4.5:1 threshold PRODUCT.md records as binding — so it was removed from the system rather than merely discouraged. If secondary text needs to recede further, reduce its size, weight, or tracking; never its contrast.
 
@@ -281,7 +289,7 @@ Both load from Google Fonts, and the request carries only the faces the styleshe
 - **Body Extra Small** (Karla 400, 14px, 1.6): Footer text and addresses, statistic labels, the photo-frame caption, small accent links, the form error.
 - **Action** (Karla 700, 16px): Buttons and accent links. 15px for in-card links, 14px for small links.
 - **Contact** (Lora 400, 20px, 1.5): Address, telephone and e-mail on the contactos page — serif, because they are institutional facts.
-- **Label** (Karla 700, 13px, `0.14em`, uppercase): The eyebrow. Terracotta on light grounds, Warm Sand on ink, `rgba(255,255,255,0.75)` on terracotta.
+- **Label** (Karla 700, 13px, `0.14em`, uppercase): The eyebrow. Terracotta on light grounds, Warm Sand on ink, solid white on terracotta. It previously used white at 75% opacity there, which composited to 3.54:1; the eyebrow recedes by size and letterspacing against a 32px serif title, so it had no need to also recede by contrast.
 - **Label Small** (Karla 700, 12px, `0.1em`, uppercase, Stone — Parchment Muted on ink): Field labels for data — Morada, Telefone, NIF, and the officer roles in governance cards.
 - **Brand** (Lora 700, 20px, `0.01em`) over **Brand Sub** (Karla 400, 12px, `0.04em`, Stone): The header lockup only. A two-line pairing with no sibling elsewhere in the ramp — do not reuse either step for body content.
 
@@ -352,6 +360,7 @@ Components are **softly tactile**: generous radii, roomy padding, fully-rounded 
 - **Outline:** Transparent ground, Ink text, `1.5px` Border Strong stroke. Hover shifts both stroke and text to Terracotta Red. Used as the secondary action beside a primary, and as the sole action on cream grounds where a filled button would over-signal.
 - **Inverse:** White ground, Terracotta Red text — the only button used on the terracotta band. Hover settles the ground to Aged Paper.
 - **Focus:** a 2px Terracotta Red ring at 2px offset, inherited from the site-wide `:focus-visible` rule. It inverts to white inside the terracotta band and to Parchment inside the footer and dark cards, so it always clears 3:1 against its ground.
+- **Inert (sending):** Border Strong ground, Warm Graphite text, `cursor: progress` — 6.2:1, built from existing tokens rather than an opacity trick, because a faded pill would read as damaged rather than busy. Driven by `aria-disabled="true"`, never the `disabled` property: a disabled element is blurred by the browser, which drops a keyboard user out of the form mid-task. Since `aria-disabled` does not block activation, the handler carries its own re-entrancy guard.
 - **State gap:** no transitions on any button — every state change is instant. That is a gap rather than an intention, but it suits the still register; if motion is ever added, it belongs to hover and focus only.
 
 ### Cards / Containers
@@ -371,14 +380,18 @@ Components are **softly tactile**: generous radii, roomy padding, fully-rounded 
 - **Success:** A dedicated panel replaces the submit row on send — Success ground, `1px` Success Border, `{rounded.md}`, Karla 700 in Success Ink.
 - **Error:** Inline Terracotta Deep text at 14px 700, beside the submit button.
 - **Announcement:** a permanent `role="status"` region, visually hidden with `.sr-only`, sits inside the form and receives the panel's text when state changes. The visible panels are for sighted users; the region is what screen readers hear. Never rely on revealing a styled panel alone — a live region that appears at the same moment as its content is not reliably announced.
+- **Focus on send:** the success panel carries `tabindex="-1"` and takes focus when it appears, because the submit row it replaces was holding focus. Any panel that replaces the control that summoned it inherits this obligation.
+- **Autofill:** every field that maps to a standard token declares `autocomplete` (`name`, `email`). WCAG 1.3.5 is an AA criterion, not a convenience.
+- **Works without JavaScript:** the form declares a real `action` and `method`, so a failed script degrades to a native POST rather than a dead button. The scripted path calls `preventDefault()` and takes over from there; the unscripted path ends on the endpoint's own confirmation page rather than back on the site, which is the accepted cost of keeping every URL relative.
 
 ### Navigation
 
 - **Brand:** 44px logo beside a two-line lockup — Lora 700 at 19px over Karla 11.5px at `0.04em` in Stone.
-- **Desktop links** (≥1024px): Karla 500 at 15px in Ink, `8px 12px` padding, `{rounded.xs}` radius. Hover shifts text to Terracotta Red. The active page gets Terracotta Red text at 700 on an Active Wash ground, driven by a `body[data-page]` / `[data-nav]` attribute pair rather than a class.
+- **Desktop links** (≥1024px): Karla 500 at 15px in Ink, `8px 12px` padding, `{rounded.xs}` radius. Hover shifts text to Terracotta Red. The active page gets Deep on Wash text at 700 on an Active Wash ground, driven by a `body[data-page]` / `[data-nav]` attribute pair rather than a class. The active selector names the `<a>` element (`a[data-nav="…"]`) purely to outrank the hover rule: without that, hovering the current page would lighten it back to Terracotta Red, and the current page should not react to a pointer at all — there is nowhere for it to go.
 - **Nav CTA:** A terracotta pill sitting outside the link rhythm, present in both navigations.
 - **Mobile** (<1024px): A 46px square toggle with `1.5px` Border Strong stroke and `{rounded.md}` radius, whose three bars animate into a cross (`0.2s` on transform and opacity — the only transition in the entire system). The open panel is a full-width Aged Paper column beneath the header, links at 17px with `13px 14px` padding.
-- **Disclosure:** the toggle carries `aria-expanded` and `aria-controls="nav-mobile"`; the panel is revealed by `display` toggling, so exactly one navigation landmark is in the accessibility tree at any viewport.
+- **Disclosure:** the toggle carries `aria-expanded` and `aria-controls="nav-mobile"`; the panel is revealed by `display` toggling, so exactly one navigation landmark is in the accessibility tree at any viewport. Escape closes it and returns focus to the toggle, and crossing the 1024px breakpoint closes it too — otherwise the open state strands `aria-expanded="true"` on a button that is no longer rendered.
+- **Forced colors:** the three toggle bars are pure `background`, which Windows high-contrast mode overrides with the canvas color, erasing the icon. A `forced-colors: active` block repaints them in `CanvasText`. Any future glyph built from background fills alone owes the same treatment.
 
 ### Statistics Band
 
@@ -390,7 +403,9 @@ A fixed-height region (380px, 340px on the history page) with `{rounded.2xl}` ra
 
 ### Document Row
 
-A horizontal Aged Paper row (`{rounded.lg}`, `18px 22px`) holding a serif terracotta PDF badge on Active Wash, a two-line name and metadata block, and a right-aligned "Descarregar ↓" in Terracotta Red 700. Wraps rather than truncating. Grouped under Lora 26px headings as a `<ul>`, with 10px between rows and 48px between groups.
+A horizontal Aged Paper row (`{rounded.lg}`, `18px 22px`) holding a serif Deep on Wash PDF badge on Active Wash, a two-line name and metadata block, and a right-aligned "Descarregar ↓" in Terracotta Red 700. Wraps rather than truncating. Grouped under Lora 26px headings as a `<ul>`, with 10px between rows and 48px between groups.
+
+The name block sets `min-width: 0` and the name itself `overflow-wrap: anywhere`. Publishing is "commit a PDF and push" with no filename review, so the title is whatever someone typed — and a long name with no spaces or hyphens (a scanner dump, a run-together title) would otherwise refuse to shrink inside its flex row, push past the row, and make the whole page scroll sideways on a phone. The row grows taller instead. Treat any component fed by filenames as receiving hostile input.
 
 Rendered at build time by `build.py` from the contents of `documentos/` — no JavaScript, no network request, no loading or error state. The badge and the arrow are `aria-hidden`, so each row's accessible name is the document title, its format and size, then "Descarregar". This is the primary-audience component — the thing the scrutineer came for — and it should stay the most legible, least decorated element on the site.
 
@@ -400,7 +415,8 @@ Rendered at build time by `build.py` from the contents of `documentos/` — no J
 
 - **Do** keep every section on one of the four grounds, full-bleed, with a 1px hairline where two same-colored sections meet.
 - **Do** set institutionally significant numerals in Lora — years, statistics, the NIF, the telephone number.
-- **Do** open sections with an uppercase letterspaced eyebrow: Terracotta Red on light grounds, Warm Sand on ink, `rgba(255,255,255,0.75)` on terracotta.
+- **Do** open sections with an uppercase letterspaced eyebrow: Terracotta Red on light grounds, Warm Sand on ink, solid white on terracotta.
+- **Do** name a text partner for every new ground token in the same commit, and measure the pair before shipping it.
 - **Do** build new layouts with `auto-fit` / `minmax(min(100%, Npx), 1fr)` and `clamp()`, so they adapt without a breakpoint.
 - **Do** scale radius to the element — 8–10px controls, 12–16px insets, 20–24px cards, 999px actions.
 - **Do** signal hover on containers by shifting the border to Terracotta Red, and on filled buttons by deepening the ground.
