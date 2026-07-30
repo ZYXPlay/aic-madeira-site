@@ -1,0 +1,508 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-29T12:19:31Z",
+  "title": "Design System: A.I.C. Madeira",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Aged Paper",
+        "canonical": "oklch(0.976 0.006 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.006 75)",
+          "oklch(0.26 0.006 75)",
+          "oklch(0.37 0.006 75)",
+          "oklch(0.49 0.006 75)",
+          "oklch(0.60 0.006 75)",
+          "oklch(0.72 0.006 75)",
+          "oklch(0.83 0.006 75)",
+          "oklch(0.95 0.006 75)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "White Surface",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.26 0 0)",
+          "oklch(0.37 0 0)",
+          "oklch(0.49 0 0)",
+          "oklch(0.60 0 0)",
+          "oklch(0.72 0 0)",
+          "oklch(0.83 0 0)",
+          "oklch(0.95 0 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(0.262 0.008 60)",
+        "tonalRamp": [
+          "oklch(0.15 0.008 60)",
+          "oklch(0.26 0.008 60)",
+          "oklch(0.37 0.008 60)",
+          "oklch(0.49 0.008 60)",
+          "oklch(0.60 0.008 60)",
+          "oklch(0.72 0.008 60)",
+          "oklch(0.83 0.008 60)",
+          "oklch(0.95 0.008 60)"
+        ]
+      },
+      "body": {
+        "role": "neutral",
+        "displayName": "Warm Graphite",
+        "canonical": "oklch(0.379 0.010 68)",
+        "tonalRamp": [
+          "oklch(0.15 0.010 68)",
+          "oklch(0.26 0.010 68)",
+          "oklch(0.37 0.010 68)",
+          "oklch(0.49 0.010 68)",
+          "oklch(0.60 0.010 68)",
+          "oklch(0.72 0.010 68)",
+          "oklch(0.83 0.010 68)",
+          "oklch(0.95 0.010 68)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Stone",
+        "canonical": "oklch(0.505 0.013 70)",
+        "tonalRamp": [
+          "oklch(0.15 0.013 70)",
+          "oklch(0.26 0.013 70)",
+          "oklch(0.37 0.013 70)",
+          "oklch(0.49 0.013 70)",
+          "oklch(0.60 0.013 70)",
+          "oklch(0.72 0.013 70)",
+          "oklch(0.83 0.013 70)",
+          "oklch(0.95 0.013 70)"
+        ]
+      },
+      "muted-2": {
+        "role": "neutral",
+        "displayName": "Ash",
+        "canonical": "oklch(0.618 0.014 72)",
+        "tonalRamp": [
+          "oklch(0.15 0.014 72)",
+          "oklch(0.26 0.014 72)",
+          "oklch(0.37 0.014 72)",
+          "oklch(0.49 0.014 72)",
+          "oklch(0.60 0.014 72)",
+          "oklch(0.72 0.014 72)",
+          "oklch(0.83 0.014 72)",
+          "oklch(0.95 0.014 72)"
+        ]
+      },
+      "terracotta": {
+        "role": "primary",
+        "displayName": "Terracotta Red",
+        "canonical": "oklch(0.535 0.163 35)",
+        "tonalRamp": [
+          "oklch(0.15 0.055 35)",
+          "oklch(0.26 0.095 35)",
+          "oklch(0.37 0.135 35)",
+          "oklch(0.49 0.163 35)",
+          "oklch(0.60 0.150 35)",
+          "oklch(0.72 0.115 35)",
+          "oklch(0.83 0.075 35)",
+          "oklch(0.95 0.028 35)"
+        ]
+      },
+      "terracotta-dark": {
+        "role": "primary",
+        "displayName": "Terracotta Deep",
+        "canonical": "oklch(0.474 0.150 35)",
+        "tonalRamp": [
+          "oklch(0.15 0.052 35)",
+          "oklch(0.26 0.090 35)",
+          "oklch(0.37 0.128 35)",
+          "oklch(0.49 0.150 35)",
+          "oklch(0.60 0.138 35)",
+          "oklch(0.72 0.106 35)",
+          "oklch(0.83 0.069 35)",
+          "oklch(0.95 0.026 35)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(0.917 0.014 80)",
+        "tonalRamp": [
+          "oklch(0.15 0.014 80)",
+          "oklch(0.26 0.014 80)",
+          "oklch(0.37 0.014 80)",
+          "oklch(0.49 0.014 80)",
+          "oklch(0.60 0.014 80)",
+          "oklch(0.72 0.014 80)",
+          "oklch(0.83 0.014 80)",
+          "oklch(0.95 0.014 80)"
+        ]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Stroke",
+        "canonical": "oklch(0.850 0.019 78)",
+        "tonalRamp": [
+          "oklch(0.15 0.019 78)",
+          "oklch(0.26 0.019 78)",
+          "oklch(0.37 0.019 78)",
+          "oklch(0.49 0.019 78)",
+          "oklch(0.60 0.019 78)",
+          "oklch(0.72 0.019 78)",
+          "oklch(0.83 0.019 78)",
+          "oklch(0.95 0.019 78)"
+        ]
+      },
+      "on-dark": {
+        "role": "neutral",
+        "displayName": "Parchment",
+        "canonical": "oklch(0.849 0.013 78)",
+        "tonalRamp": [
+          "oklch(0.15 0.013 78)",
+          "oklch(0.26 0.013 78)",
+          "oklch(0.37 0.013 78)",
+          "oklch(0.49 0.013 78)",
+          "oklch(0.60 0.013 78)",
+          "oklch(0.72 0.013 78)",
+          "oklch(0.83 0.013 78)",
+          "oklch(0.95 0.013 78)"
+        ]
+      },
+      "on-dark-muted": {
+        "role": "neutral",
+        "displayName": "Parchment Muted",
+        "canonical": "oklch(0.729 0.014 75)",
+        "tonalRamp": [
+          "oklch(0.15 0.014 75)",
+          "oklch(0.26 0.014 75)",
+          "oklch(0.37 0.014 75)",
+          "oklch(0.49 0.014 75)",
+          "oklch(0.60 0.014 75)",
+          "oklch(0.72 0.014 75)",
+          "oklch(0.83 0.014 75)",
+          "oklch(0.95 0.014 75)"
+        ]
+      },
+      "accent-warm": {
+        "role": "tertiary",
+        "displayName": "Warm Sand",
+        "canonical": "oklch(0.731 0.083 55)",
+        "tonalRamp": [
+          "oklch(0.15 0.030 55)",
+          "oklch(0.26 0.050 55)",
+          "oklch(0.37 0.068 55)",
+          "oklch(0.49 0.080 55)",
+          "oklch(0.60 0.083 55)",
+          "oklch(0.72 0.083 55)",
+          "oklch(0.83 0.058 55)",
+          "oklch(0.95 0.024 55)"
+        ]
+      },
+      "active-bg": {
+        "role": "tertiary",
+        "displayName": "Active Wash",
+        "canonical": "oklch(0.937 0.014 65)",
+        "tonalRamp": [
+          "oklch(0.15 0.014 65)",
+          "oklch(0.26 0.014 65)",
+          "oklch(0.37 0.014 65)",
+          "oklch(0.49 0.014 65)",
+          "oklch(0.60 0.014 65)",
+          "oklch(0.72 0.014 65)",
+          "oklch(0.83 0.014 65)",
+          "oklch(0.95 0.014 65)"
+        ]
+      },
+      "success-bg": {
+        "role": "secondary",
+        "displayName": "Success Wash",
+        "canonical": "oklch(0.949 0.020 140)",
+        "tonalRamp": [
+          "oklch(0.15 0.020 140)",
+          "oklch(0.26 0.020 140)",
+          "oklch(0.37 0.020 140)",
+          "oklch(0.49 0.020 140)",
+          "oklch(0.60 0.020 140)",
+          "oklch(0.72 0.020 140)",
+          "oklch(0.83 0.020 140)",
+          "oklch(0.95 0.020 140)"
+        ]
+      },
+      "success-border": {
+        "role": "secondary",
+        "displayName": "Success Stroke",
+        "canonical": "oklch(0.849 0.055 140)",
+        "tonalRamp": [
+          "oklch(0.15 0.022 140)",
+          "oklch(0.26 0.036 140)",
+          "oklch(0.37 0.048 140)",
+          "oklch(0.49 0.055 140)",
+          "oklch(0.60 0.055 140)",
+          "oklch(0.72 0.055 140)",
+          "oklch(0.83 0.055 140)",
+          "oklch(0.95 0.022 140)"
+        ]
+      },
+      "success-ink": {
+        "role": "secondary",
+        "displayName": "Success Ink",
+        "canonical": "oklch(0.427 0.093 140)",
+        "tonalRamp": [
+          "oklch(0.15 0.038 140)",
+          "oklch(0.26 0.062 140)",
+          "oklch(0.37 0.084 140)",
+          "oklch(0.49 0.093 140)",
+          "oklch(0.60 0.093 140)",
+          "oklch(0.72 0.078 140)",
+          "oklch(0.83 0.052 140)",
+          "oklch(0.95 0.022 140)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The home page headline. One per site."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Every interior page's h1, capped at 760px."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section headings, always preceded by an eyebrow."
+      },
+      "subtitle": {
+        "displayName": "Subtitle",
+        "purpose": "Card titles, document group headings, governance body names, timeline years."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "The mission statement on ink, and the motto in the logo card. Lora italic only."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "Institutionally significant numerals — years, statistics, NIF, telephone. Always Lora, never Karla."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The paragraph under every page title, capped at 620px."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running prose. Relaxes to 1.75 line-height for the historical narrative."
+      },
+      "body-sm": {
+        "displayName": "Body Small",
+        "purpose": "Card text, info boxes, governance member names."
+      },
+      "action": {
+        "displayName": "Action",
+        "purpose": "Buttons and accent links. Karla 700."
+      },
+      "label": {
+        "displayName": "Eyebrow",
+        "purpose": "The uppercase section marker. Terracotta on light, Warm Sand on ink."
+      },
+      "label-sm": {
+        "displayName": "Mini Label",
+        "purpose": "Field labels for data — Morada, Telefone, NIF, officer roles."
+      },
+      "brand": {
+        "displayName": "Brand",
+        "purpose": "The header lockup's serif name. Paired with brand-sub; not reused elsewhere."
+      },
+      "brand-sub": {
+        "displayName": "Brand Sub",
+        "purpose": "The header lockup's second line, the association's full name in Stone."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "duration-quick",
+        "value": "0.2s",
+        "purpose": "The only transition in the system: the mobile menu toggle's bars animating into a cross (transform and opacity). No easing token is defined; the browser default applies. Buttons, links and cards change state instantly by design."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "nav",
+        "value": "1024px",
+        "purpose": "The single media query in the entire stylesheet. Swaps the mobile toggle for the desktop navigation and nothing else. All other layout is intrinsic."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The principal action. Terracotta pill, white label; hover deepens the ground.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Contribuir</a>",
+      "css": ".ds-btn-primary { display: inline-block; font-family: var(--font-sans); font-size: 16px; font-weight: 700; text-decoration: none; color: #FFFFFF; background: var(--terracotta); border: none; border-radius: 999px; padding: 14px 30px; cursor: pointer; } .ds-btn-primary:hover { background: var(--terracotta-dark); color: #FFFFFF; } .ds-btn-primary:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "The secondary action beside a primary, and the sole action on cream grounds. Stroke and label both shift to terracotta on hover.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#\">Conhecer a instituição</a>",
+      "css": ".ds-btn-outline { display: inline-block; font-family: var(--font-sans); font-size: 16px; font-weight: 700; text-decoration: none; color: var(--ink); background: transparent; border: 1.5px solid var(--border-strong); border-radius: 999px; padding: 14px 30px; cursor: pointer; } .ds-btn-outline:hover { border-color: var(--terracotta); color: var(--terracotta); } .ds-btn-outline:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }"
+    },
+    {
+      "name": "Section Head",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "The system's primary orientation device: an uppercase terracotta eyebrow above a Lora section title. Every section opens this way.",
+      "html": "<div class=\"ds-section-head\"><span class=\"ds-eyebrow\">Como ajudar</span><h2 class=\"ds-section-title\">O seu apoio chega a quem mais precisa.</h2></div>",
+      "css": ".ds-section-head { display: flex; flex-direction: column; gap: 12px; max-width: 560px; } .ds-eyebrow { font-family: var(--font-sans); font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); } .ds-section-title { font-family: var(--font-serif); font-weight: 600; font-size: clamp(28px, 4.5vw, 36px); line-height: 1.2; color: var(--ink); text-wrap: pretty; margin: 0; }"
+    },
+    {
+      "name": "Content Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White surface on aged paper, 20px radius, hairline border. Linked cards signal hover by shifting the border to terracotta — no lift, no ground change.",
+      "html": "<a class=\"ds-card\" href=\"#\"><span class=\"ds-card-title\">Consignação de IRS</span><p class=\"ds-card-text\">Sem custo para si: indique o nosso NIF no quadro 9 do anexo H da sua declaração de IRS.</p><span class=\"ds-card-link\">Saber mais →</span></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px; text-decoration: none; max-width: 360px; } .ds-card:hover { border-color: var(--terracotta); } .ds-card:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; } .ds-card-title { font-family: var(--font-serif); font-weight: 600; font-size: 24px; color: var(--ink); } .ds-card-text { font-family: var(--font-sans); font-size: 15.5px; line-height: 1.65; color: var(--muted); margin: 0; } .ds-card-link { font-family: var(--font-sans); font-size: 15px; font-weight: 700; color: var(--terracotta); margin-top: auto; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "White ground, strong hairline stroke, 10px radius. The 2px terracotta focus ring is the site-wide :focus-visible rule; the placeholder uses Stone at 5.6:1 on white.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">O seu endereço eletrónico *</span><input class=\"ds-input\" type=\"email\" placeholder=\"nome@exemplo.pt\"></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; max-width: 340px; } .ds-field-label { font-family: var(--font-sans); font-size: 13.5px; font-weight: 700; color: var(--body); } .ds-input { font-family: var(--font-sans); font-size: 15.5px; color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px 14px; } .ds-input::placeholder { color: var(--muted); } .ds-input:focus { border-color: var(--terracotta); } .ds-input:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation Links",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Karla 500 links in soft 8px rectangles — the one interactive element that isn't a pill. The active page carries terracotta 700 on an Active Wash ground, driven by a body[data-page] / [data-nav] attribute pair. The CTA pill sits outside the link rhythm.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\">Início</a><a href=\"#\" class=\"ds-nav-active\">Documentos</a><a href=\"#\">Contactos</a><a href=\"#\" class=\"ds-nav-cta\">Contribuir</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-family: var(--font-sans); } .ds-nav a { font-size: 15px; font-weight: 500; color: var(--ink); text-decoration: none; padding: 8px 12px; border-radius: 8px; } .ds-nav a:hover { color: var(--terracotta); } .ds-nav a:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; } .ds-nav .ds-nav-active { color: var(--terracotta); font-weight: 700; background: var(--active-bg); } .ds-nav .ds-nav-cta { font-weight: 700; color: #FFFFFF; background: var(--terracotta); padding: 10px 20px; border-radius: 999px; margin-left: 10px; } .ds-nav .ds-nav-cta:hover { color: #FFFFFF; background: var(--terracotta-dark); }"
+    },
+    {
+      "name": "Document Row",
+      "kind": "custom",
+      "refersTo": "doc-row",
+      "description": "The primary-audience component — what a scrutineer arrives for. Serif terracotta PDF badge, name and metadata, right-aligned download affordance. Wraps rather than truncating; hover shifts the border only.",
+      "html": "<a class=\"ds-doc-row\" href=\"#\"><span class=\"ds-doc-badge\">PDF</span><span class=\"ds-doc-info\"><span class=\"ds-doc-name\">Relatório e Contas 2025</span><span class=\"ds-doc-meta\">PDF · 1,2 MB</span></span><span class=\"ds-doc-dl\">Descarregar ↓</span></a>",
+      "css": ".ds-doc-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; text-decoration: none; font-family: var(--font-sans); } .ds-doc-row:hover { border-color: var(--terracotta); } .ds-doc-row:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; } .ds-doc-badge { font-family: var(--font-serif); font-size: 13px; font-weight: 700; color: var(--terracotta); background: var(--active-bg); border-radius: 8px; padding: 8px 10px; letter-spacing: 0.04em; } .ds-doc-info { display: flex; flex-direction: column; gap: 2px; } .ds-doc-name { font-size: 16px; font-weight: 700; color: var(--ink); } .ds-doc-meta { font-size: 13.5px; color: var(--muted-2); } .ds-doc-dl { margin-left: auto; font-size: 14.5px; font-weight: 700; color: var(--terracotta); }"
+    },
+    {
+      "name": "Photo Frame (Absent Media)",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "The system's mechanism for declaring missing imagery honestly: dashed stroke, Active Wash fill, and an italic caption naming what should be there. A script hides broken images so the frame returns. The only sanctioned use of a dashed border.",
+      "html": "<div class=\"ds-photo-frame\"><span class=\"ds-photo-label\">Foto: Hospício Princesa D. Maria Amélia</span></div>",
+      "css": ".ds-photo-frame { position: relative; width: 100%; max-width: 420px; height: 260px; border-radius: 20px; overflow: hidden; background: var(--active-bg); border: 1px dashed var(--border-strong); display: flex; align-items: center; justify-content: center; } .ds-photo-label { font-family: var(--font-sans); font-size: 14px; font-style: italic; color: var(--muted-2); text-align: center; padding: 0 20px; }"
+    },
+    {
+      "name": "Statistics Band",
+      "kind": "custom",
+      "refersTo": "figure",
+      "description": "Serif numerals in aged paper on ink, above Karla labels in Parchment Muted. The shortest band in the system at 44px padding — it reads as a horizontal rule of facts, not a section.",
+      "html": "<div class=\"ds-stats\"><div class=\"ds-stat\"><span class=\"ds-stat-num\">1617</span><span class=\"ds-stat-label\">Fundada por S. Vicente de Paulo</span></div><div class=\"ds-stat\"><span class=\"ds-stat-num\">1876</span><span class=\"ds-stat-label\">Início na Madeira</span></div></div>",
+      "css": ".ds-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 32px; background: var(--ink); padding: 44px 24px; border-radius: 0; } .ds-stat { display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; } .ds-stat-num { font-family: var(--font-serif); font-size: 38px; font-weight: 600; color: var(--bg); } .ds-stat-label { font-family: var(--font-sans); font-size: 14px; color: var(--on-dark-muted); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Hospício Parlour",
+    "overview": "The association has met in the same room since 22 January 1876 — a formal parlour in the Hospício Princesa D. Maria Amélia, with lime-washed plaster walls, terracotta in the light from the street, and dark wood. This system is that room rendered as a website. It is warm without being soft, formal without being cold, and it never raises its voice. A visitor arriving to audit the accounts should feel they have been received properly, not processed.\n\nFour qualities hold simultaneously and none may be traded for another: warm, not cold — the cream and terracotta are a deliberate refusal of the grey government-portal register, because this is a charity of people; formal and institutional — composed, a little ceremonious, matching the formal European Portuguese of the copy; unhurried and spacious — long line-heights, generous vertical rhythm, nothing competing or urging; sober and documentary — no ornament earns its place, because restraint is what reads as trustworthy to someone checking whether an institution is real.\n\nThe system is materially plain by doctrine. There are no shadows, no gradients, no decorative shapes, and almost no motion. Depth comes entirely from full-bleed tonal bands and 1px hairlines — the way a printed record gets its structure from paper stock and rules rather than from lighting. Interest is meant to come from the content: the dates, the names, the documents.",
+    "keyCharacteristics": [
+      "Four grounds only: aged paper, white, ink, terracotta — always full-bleed, never a floating panel",
+      "Lora for every heading, quotation, and institutionally significant figure; Karla for everything else",
+      "Terracotta as the sole accent, used as a signal at small scale plus at most one full-bleed band per page",
+      "Strictly flat: zero shadows, depth from tonal banding and hairlines",
+      "Intrinsically responsive — one media query in the entire system, and it only swaps navigation",
+      "Radius grows with the element: pills for actions, soft rectangles for containers"
+    ],
+    "rules": [
+      {
+        "name": "The Four Grounds Rule",
+        "body": "Every section sits on exactly one of four backgrounds — Aged Paper, White Surface, Ink, or Terracotta Red — and that color runs full-bleed edge to edge. The 1120px container governs inner content only. Never build a colored panel that floats inside a section with page ground visible around it.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signal, Not Surface Rule",
+        "body": "Terracotta Red is a signal color. It may cover a large area exactly once per page, as a full-bleed band. Everywhere else it appears at the scale of a label, a line of text, a badge, or a pill — never as a card fill, never as a section background twice.",
+        "section": "colors"
+      },
+      {
+        "name": "The Ash Ceiling Rule",
+        "body": "Ash (#8F867B) is metadata, not text. Measured, it reaches only 3.35:1 on Aged Paper and 3.97:1 on Ink — both below the WCAG 2.1 AA threshold of 4.5:1 that PRODUCT.md records as binding. The document list's file sizes have already been moved to Stone; the remaining uses (italic captions, mini-labels, the footer's NIF line and column headings) are inherited and still need remediation. Do not add new ones. For any text a visitor must read, Stone is the lightest permitted value on light grounds and Parchment Muted on dark.",
+        "section": "colors"
+      },
+      {
+        "name": "The Serif Numeral Rule",
+        "body": "Any figure carrying institutional weight is set in Lora, never Karla: the founding years, the statistics band, the NIF, the telephone number, the address. Numbers are evidence in this product, and the serif is what marks them as such. Karla numerals are for incidental data only — file sizes, dates in metadata.",
+        "section": "typography"
+      },
+      {
+        "name": "The Eyebrow Precedes Rule",
+        "body": "Every section opens with an uppercase letterspaced eyebrow above its serif heading. It names the section in one or two words and is the system's primary orientation device. A section heading without an eyebrow above it looks unfinished here.",
+        "section": "typography"
+      },
+      {
+        "name": "The Pretty Wrap Rule",
+        "body": "Every display, title, lead, prose, and quote class carries text-wrap: pretty. Ragged single-word last lines are treated as a defect, not a rendering detail. Extend it to any new type class.",
+        "section": "typography"
+      },
+      {
+        "name": "The Snap-To-Role Rule",
+        "body": "New text takes one of the twelve documented roles. If a size feels wrong, change role — do not introduce a value 0.5px from an existing one. The stylesheet carries 22 distinct fixed sizes plus six fluid ranges, with 16 steps between 11.5px and 20px; those sub-pixel neighbours are accumulated drift, and this rule exists to stop them spreading.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Breakpoint Rule",
+        "body": "The entire stylesheet contains exactly one media query — min-width: 1024px — and its only job is swapping the mobile menu for the desktop navigation. Every other responsive behavior is intrinsic. New layouts must adapt through auto-fit, minmax, clamp(), and flex-wrap; adding a second breakpoint requires a reason that intrinsic sizing genuinely cannot serve.",
+        "section": "layout"
+      },
+      {
+        "name": "The Full-Bleed Band Rule",
+        "body": "Section color changes always span the viewport. When two same-colored sections meet, separate them with a 1px hairline, never with a gap or a shadow.",
+        "section": "layout"
+      },
+      {
+        "name": "The No-Shadow Rule",
+        "body": "box-shadow is not part of this system. Depth comes from tonal banding and hairlines. The home page logo card previously carried the one exception (0 20px 50px -30px rgba(46, 42, 38, 0.25)); it has been removed so no precedent exists to cite. If an element seems to need lifting, change its ground or give it a border.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Radius Tracks Scale Rule",
+        "body": "Radius grows with the element: 8–10px for controls, 12–16px for insets and small panels, 20–24px for cards and major surfaces, 999px for actions. A 24px radius on a small control, or 8px on a large card, breaks the system regardless of how it looks in isolation.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Dashed-Means-Absent Rule",
+        "body": "A dashed border (1px dashed Stroke) marks missing media — a photo frame with no photograph, which fills with Active Wash and shows an italic caption naming what should be there. This is the visual form of PRODUCT.md's rule that absent evidence is stated, not filled with a stock substitute. Dashed borders mean nothing else; do not use them for emphasis, drafts, or notes.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do keep every section on one of the four grounds, full-bleed, with a 1px hairline where two same-colored sections meet.",
+      "Do set institutionally significant numerals in Lora — years, statistics, the NIF, the telephone number.",
+      "Do open sections with an uppercase letterspaced eyebrow: Terracotta Red on light grounds, Warm Sand on ink, rgba(255,255,255,0.75) on terracotta.",
+      "Do build new layouts with auto-fit / minmax(min(100%, Npx), 1fr) and clamp(), so they adapt without a breakpoint.",
+      "Do scale radius to the element — 8–10px controls, 12–16px insets, 20–24px cards, 999px actions.",
+      "Do signal hover on containers by shifting the border to Terracotta Red, and on filled buttons by deepening the ground.",
+      "Do let new interactive elements inherit the site-wide :focus-visible ring (2px Terracotta Red at 2px offset), and check it clears 3:1 against whatever ground it lands on — invert it to white or Parchment on dark and terracotta grounds.",
+      "Do state absent imagery with the dashed photo frame and a caption naming what belongs there.",
+      "Do carry text-wrap: pretty onto any new display or prose class."
+    ],
+    "donts": [
+      "Don't add a box-shadow. The system is flat; change the ground or add a border instead.",
+      "Don't use Ash (#8F867B) for anything a visitor needs to read — it measures 3.35:1 on Aged Paper, below the 4.5:1 threshold. Stone is the lightest permitted text color on light grounds.",
+      "Don't fill a card or a second section with Terracotta Red. One full-bleed terracotta band per page is the ceiling; everywhere else it is a signal at label scale.",
+      "Don't use White Surface as the page ground. Aged Paper is the resting state; white is for raised content.",
+      "Don't introduce a second accent hue, or extend the success green into a warning/info family. One accent, one semantic pair.",
+      "Don't add a media query for layout. The 1024px breakpoint belongs to navigation alone.",
+      "Don't use dashed borders for anything but missing media.",
+      "Don't set outline: none without replacing the focus indicator.",
+      "Don't use true black or pure grey. Ink is a warm near-black; every neutral in the system carries warmth.",
+      "Don't add motion beyond state transitions. The menu toggle's 0.2s cross is the system's only animation, and the register is deliberately still."
+    ]
+  }
+}

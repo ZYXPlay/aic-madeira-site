@@ -28,7 +28,14 @@ body { font-family: var(--font-sans); color: var(--ink); }
 a { color: var(--terracotta); }
 a:hover { color: var(--terracotta-dark); }
 p, h1, h2, h3 { margin: 0; }
-input::placeholder, textarea::placeholder { color: #A99F92; }
+input::placeholder, textarea::placeholder { color: var(--muted); }
+
+/* Foco visível em todo o site (WCAG 2.1 AA — 2.4.7 Focus Visible, 1.4.11 Non-text Contrast).
+   Anel terracota sobre fundos claros; invertido sobre terracota e sobre tinta. */
+:where(a, button, input, textarea, [tabindex]):focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }
+.section--terracotta :where(a, button):focus-visible { outline-color: #FFFFFF; }
+.site-footer :where(a):focus-visible,
+.option-card--dark :where(a):focus-visible { outline-color: var(--on-dark); }
 
 /* ---------- Layout ---------- */
 .container { max-width: 1120px; margin: 0 auto; padding-inline: 24px; }
@@ -99,7 +106,6 @@ input::placeholder, textarea::placeholder { color: #A99F92; }
 .member-name { font-size: 15.5px; line-height: 1.4; color: var(--ink); }
 .mission-quote { font-family: var(--font-serif); font-style: italic; font-weight: 500; font-size: clamp(22px, 3.5vw, 30px); line-height: 1.45; color: var(--bg); max-width: 820px; text-wrap: pretty; }
 .hero-quote { font-family: var(--font-serif); font-style: italic; font-size: 17px; line-height: 1.6; color: var(--muted); text-align: center; }
-.mono { font-family: monospace; }
 .strong-ink { color: var(--ink); }
 
 /* ---------- Botões e ligações ---------- */
@@ -167,7 +173,7 @@ body[data-page="contactos"] [data-nav="contactos"] {
 /* ---------- Cartões e caixas ---------- */
 .card { display: flex; flex-direction: column; gap: 14px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 36px; text-decoration: none; }
 a.card:hover { border-color: var(--terracotta); }
-.hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: clamp(32px, 4vw, 48px) clamp(24px, 3.5vw, 40px); box-shadow: 0 20px 50px -30px rgba(46, 42, 38, 0.25); display: flex; flex-direction: column; align-items: center; gap: 18px; max-width: 340px; }
+.hero-card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: clamp(32px, 4vw, 48px) clamp(24px, 3.5vw, 40px); display: flex; flex-direction: column; align-items: center; gap: 18px; max-width: 340px; }
 .hero-card img { width: 220px; height: auto; display: block; }
 .orgao-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; gap: 18px; }
 .option-card { display: flex; flex-direction: column; gap: 20px; border-radius: 24px; padding: clamp(26px, 4vw, 44px); }
@@ -177,12 +183,6 @@ a.card:hover { border-color: var(--terracotta); }
 .inset-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px; display: flex; flex-direction: column; gap: 8px; }
 .inset-box--translucent { background: rgba(250, 247, 242, 0.08); border: 1px solid rgba(250, 247, 242, 0.15); gap: 14px; }
 .info-box { background: var(--bg); border: 1px solid var(--border); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 6px; }
-.note-dashed { background: var(--bg); border: 1px dashed var(--border-strong); border-radius: 14px; padding: 20px 24px; }
-.note-dashed p { font-size: 14.5px; line-height: 1.6; color: var(--muted-2); }
-.note-dashed strong { color: var(--muted); }
-.note-dashed--roomy { padding: 24px 28px; }
-.note-dashed--roomy p { font-size: 15px; line-height: 1.65; color: var(--muted); }
-.note-dashed--roomy strong { color: var(--ink); }
 .nif-display { font-family: var(--font-serif); font-size: clamp(26px, 5vw, 32px); font-weight: 600; color: var(--bg); letter-spacing: 0.06em; }
 .on-dark-strong { font-size: 16px; line-height: 1.5; color: var(--bg); }
 
@@ -218,7 +218,7 @@ a.card:hover { border-color: var(--terracotta); }
 .form-card { display: flex; flex-direction: column; gap: 20px; background: var(--bg); border: 1px solid var(--border); border-radius: 24px; padding: clamp(24px, 4vw, 44px); }
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field__label { font-size: 13.5px; font-weight: 700; color: var(--body); }
-.input { font-family: var(--font-sans); font-size: 15.5px; color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px 14px; outline: none; }
+.input { font-family: var(--font-sans); font-size: 15.5px; color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px 14px; }
 .input:focus { border-color: var(--terracotta); }
 textarea.input { resize: vertical; }
 .form-success { background: #EAF3E6; border: 1px solid #BCD9B0; border-radius: 12px; padding: 16px 20px; }
@@ -233,16 +233,15 @@ a.contact-big:hover { color: var(--terracotta); }
 
 /* ---------- Documentos ---------- */
 .doc-group { display: flex; flex-direction: column; gap: 16px; }
-.doc-list { display: flex; flex-direction: column; gap: 10px; }
+.doc-list { display: flex; flex-direction: column; gap: 10px; list-style: none; margin: 0; padding: 0; }
 .doc-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; text-decoration: none; }
 .doc-row:hover { border-color: var(--terracotta); }
 .doc-badge { font-family: var(--font-serif); font-size: 13px; font-weight: 700; color: var(--terracotta); background: var(--active-bg); border-radius: 8px; padding: 8px 10px; letter-spacing: 0.04em; }
 .doc-info { display: flex; flex-direction: column; gap: 2px; }
 .doc-name { font-size: 16px; font-weight: 700; color: var(--ink); }
-.doc-meta { font-size: 13.5px; color: var(--muted-2); }
+.doc-meta { font-size: 13.5px; color: var(--muted); }
 .doc-dl { margin-left: auto; font-size: 14.5px; font-weight: 700; color: var(--terracotta); }
 .status-msg { font-size: 16px; color: var(--muted); }
-.status-msg--faint { color: var(--muted-2); }
 
 /* ---------- Utilitários ---------- */
 .stack { display: flex; flex-direction: column; }

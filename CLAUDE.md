@@ -22,15 +22,16 @@ There are no tests or linters. After editing `src/`, rerun the build (or restart
 src/pages/       the five pages (full HTML documents with real <head>)
 src/partials/    header.html, footer.html — shared markup
 src/styles.css   the single stylesheet (design tokens + all classes)
-src/site.js      all behavior: mobile menu, photo fallback, docs listing, contact form
+src/site.js      all behavior: mobile menu, photo fallback, contact form
 src/assets/      logo, favicon, photos
 documentos/      published PDFs (repo root — see Documents below)
-build.py         expands include markers, copies everything into dist/
+build.py         expands include markers, generates the docs listing, copies into dist/
 ```
 
 - **Includes:** pages contain `<!-- include: header.html -->` / `<!-- include: footer.html -->` markers; `build.py` replaces them with the partial's contents. Pure concatenation — no variables or templating.
+- **Generated listing:** `documentos.html` contains a `<!-- docs-list -->` marker that `build.py` replaces with the document list built from the `documentos/` folder. It is the only generated markup in the project.
 - **Active nav link:** each page's `<body>` has `data-page="<key>"`; nav links in the header partial have `data-nav="<key>"`. A CSS attribute-selector rule in `styles.css` highlights the matching link. The header partial is identical on every page.
-- **site.js** has three self-guarding modules (each no-ops if its element is absent): the mobile menu toggle (`.nav-toggle` → `.nav-open` class; the ≤1023px/≥1024px breakpoint lives in CSS), the documents listing (`#docs-app`), and the Formspree contact form (`#contact-form`, form id `mjgqnbja`).
+- **site.js** has two self-guarding modules (each no-ops if its element is absent): the mobile menu toggle (`.nav-toggle` → `.nav-open` class; the ≤1023px/≥1024px breakpoint lives in CSS) and the Formspree contact form (`#contact-form`, form id `mjgqnbja`), plus a fallback that hides broken `.photo-frame` images. No page depends on JavaScript for its content.
 - **Relative URLs only** (no leading `/`) — the site must work both at `https://zyxplay.github.io/aic-madeira-site/` and at a custom domain.
 
 ### Adding a page
@@ -41,9 +42,13 @@ build.py         expands include markers, copies everything into dist/
 
 ## Documents page
 
-`documentos.html` lists PDFs dynamically: `site.js` fetches the contents of the `documentos/` folder of the `ZYXPlay/aic-madeira-site` repo via the public GitHub API (constants `REPO`/`PASTA` in `site.js`), filters to PDFs, and groups by filename keywords — `estatuto` → Estatutos, `relat`/`contas` → Relatórios de Contas (sorted newest-first by name), everything else → Outros documentos. Download links are relative (`documentos/<file>.pdf`), served by the deployed site itself.
+`documentos.html` is static HTML. At build time `build.py` reads the repo-root `documentos/` folder, keeps the PDFs, and replaces the page's `<!-- docs-list -->` marker with the grouped listing (see `render_documentos()`). No JavaScript and no network request are involved, so the list cannot fail to load.
 
-**Publishing a document = commit a PDF to `documentos/` and push.** Filename determines grouping and display name (`.pdf` stripped, `-`/`_` become spaces). The listing reflects the GitHub main branch, not the local working tree.
+Grouping is by filename keyword, first match wins: `estatuto` → Estatutos, `relat`/`contas` → Relatórios de Contas (sorted newest-first), everything else → Outros documentos. Display name is the filename with `.pdf` stripped and `-`/`_` turned into spaces; the file size is read from disk. Download links are relative (`documentos/<file>.pdf`), percent-encoded, served by the deployed site itself.
+
+**Publishing a document = commit a PDF to `documentos/` and push.** The existing deploy workflow rebuilds on every push to `main`, so the listing and the file always ship together — no separate step.
+
+Names are normalised to Unicode NFC for display and sorting (macOS writes accented filenames decomposed, which otherwise sorts wrongly), while the href keeps the on-disk form so the path matches.
 
 ## Deploy
 
