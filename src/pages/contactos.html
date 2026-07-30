@@ -56,17 +56,19 @@
         </div>
       </div>
 
-      <!-- Formulário -->
-      <form id="contact-form" class="form-card">
+      <!-- Formulário. O action/method são o caminho sem JavaScript: se o site.js
+           não correr, o navegador envia o formulário diretamente para o Formspree.
+           Com JavaScript, o site.js intercepta e envia sem sair da página. -->
+      <form id="contact-form" class="form-card" action="https://formspree.io/f/mjgqnbja" method="POST">
         <h2 class="box-title">Contacte-nos</h2>
         <div class="form-grid">
           <label class="field">
             <span class="field__label">O seu nome *</span>
-            <input class="input" name="nome" required>
+            <input class="input" name="nome" autocomplete="name" required>
           </label>
           <label class="field">
             <span class="field__label">O seu endereço eletrónico *</span>
-            <input class="input" name="email" type="email" required>
+            <input class="input" name="email" type="email" autocomplete="email" required>
           </label>
         </div>
         <label class="field">
@@ -77,7 +79,9 @@
           <span class="field__label">A sua mensagem</span>
           <textarea class="input" name="mensagem" rows="6"></textarea>
         </label>
-        <div class="form-success" hidden>
+        <!-- tabindex="-1": ao enviar, o botão desaparece e o foco cairia no início
+             da página. O site.js passa o foco para aqui, junto da confirmação. -->
+        <div class="form-success" tabindex="-1" hidden>
           <p>Mensagem enviada. Obrigado — responderemos o mais breve possível.</p>
         </div>
         <!-- Região viva permanente: anuncia o estado do envio a leitores de ecrã
@@ -85,7 +89,7 @@
         <p class="sr-only" role="status" data-form-status></p>
         <div class="form-actions">
           <button type="submit" class="btn btn--primary btn--form">Enviar</button>
-          <span class="form-error" hidden>Não foi possível enviar. Tente novamente ou escreva para aic.funchal@gmail.com.</span>
+          <span class="form-error" hidden>Não foi possível enviar. Tente novamente ou escreva para <a href="mailto:aic.funchal@gmail.com" class="text-link">aic.funchal@gmail.com</a>.</span>
         </div>
       </form>
     </div>

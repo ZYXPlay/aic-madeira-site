@@ -17,6 +17,10 @@
   --on-dark-muted: #B5ACA0;
   --accent-warm: #D89A6A;
   --active-bg: #F3E9DF;
+  /* Parceiro de texto do --active-bg. Este fundo já puxa para o terracota, por
+     isso o terracota normal por cima dá 4,25:1 — abaixo do mínimo AA. O tom
+     profundo dá 5,4:1. Sobre Lavado Ativo, o terracota aprofunda-se. */
+  --on-active-bg: var(--terracotta-dark);
   --font-serif: 'Lora', serif;
   --font-sans: 'Karla', sans-serif;
 }
@@ -86,7 +90,9 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
 .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--terracotta); }
 .eyebrow--muted { color: var(--muted); }
 .eyebrow--warm { color: var(--accent-warm); }
-.eyebrow--on-terracotta { color: rgba(255, 255, 255, 0.75); }
+/* Branco opaco, não branco a 75%: sobre terracota a transparência dava 3,54:1.
+   O sobrolho recua pelo tamanho e pelo espaçamento, nunca pelo contraste. */
+.eyebrow--on-terracotta { color: #FFFFFF; }
 .mini-label { font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .mini-label--tight { letter-spacing: 0.08em; }
 
@@ -117,6 +123,11 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
 .btn--inverse:hover { color: var(--terracotta); background: var(--bg); }
 .btn--wide { padding-inline: 34px; }
 .btn--form { padding-inline: 36px; }
+/* Estado inerte durante o envio. Usa aria-disabled em vez de disabled: um botão
+   desativado perde o foco, e o teclado ficaria sem posição a meio da tarefa.
+   Fundo e texto saem de tokens existentes — 6,2:1, acima do mínimo AA. */
+.btn[aria-disabled="true"] { color: var(--body); background: var(--border-strong); cursor: progress; }
+.btn[aria-disabled="true"]:hover { color: var(--body); background: var(--border-strong); }
 
 .link-accent { font-size: 16px; font-weight: 700; color: var(--terracotta); text-decoration: none; }
 .link-accent:hover { color: var(--terracotta-dark); }
@@ -143,6 +154,11 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
 .nav-toggle { margin-left: auto; display: flex; flex-direction: column; justify-content: center; gap: 5px; width: 46px; height: 46px; padding: 11px; box-sizing: border-box; background: transparent; border: 1.5px solid var(--border-strong); border-radius: 12px; cursor: pointer; }
 .nav-toggle:hover { border-color: var(--terracotta); }
 .nav-toggle__bar { display: block; height: 2px; width: 100%; background: var(--ink); border-radius: 2px; transition: transform 0.2s, opacity 0.2s; }
+/* Alto contraste (Windows): as barras são só fundo, e o modo forçado substitui
+   backgrounds pela cor da tela — o ícone desapareceria. CanvasText devolve-o. */
+@media (forced-colors: active) {
+  .nav-toggle__bar { background: CanvasText; }
+}
 .nav-open .nav-toggle__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-open .nav-toggle__bar:nth-child(2) { opacity: 0; }
 .nav-open .nav-toggle__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -160,13 +176,16 @@ input::placeholder, textarea::placeholder { color: var(--muted); }
   .site-header.nav-open .nav-mobile { display: none; }
 }
 
-/* Ligação ativa: <body data-page="X"> destaca [data-nav="X"] no menu */
-body[data-page="inicio"] [data-nav="inicio"],
-body[data-page="instituicao"] [data-nav="instituicao"],
-body[data-page="documentos"] [data-nav="documentos"],
-body[data-page="contribuicoes"] [data-nav="contribuicoes"],
-body[data-page="contactos"] [data-nav="contactos"] {
-  color: var(--terracotta); font-weight: 700; background: var(--active-bg);
+/* Ligação ativa: <body data-page="X"> destaca [data-nav="X"] no menu.
+   O seletor nomeia o <a> de propósito: sobe a especificidade acima da regra de
+   hover, para que passar o rato sobre a página atual não a aclare — a regra da
+   casa é que o terracota aprofunda, nunca aclara. A página atual fica parada. */
+body[data-page="inicio"] a[data-nav="inicio"],
+body[data-page="instituicao"] a[data-nav="instituicao"],
+body[data-page="documentos"] a[data-nav="documentos"],
+body[data-page="contribuicoes"] a[data-nav="contribuicoes"],
+body[data-page="contactos"] a[data-nav="contactos"] {
+  color: var(--on-active-bg); font-weight: 700; background: var(--active-bg);
 }
 
 /* ---------- Cartões e caixas ---------- */
@@ -236,9 +255,12 @@ a.contact-big:hover { color: var(--terracotta); }
 .doc-list { display: flex; flex-direction: column; gap: 10px; list-style: none; margin: 0; padding: 0; }
 .doc-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; text-decoration: none; }
 .doc-row:hover { border-color: var(--terracotta); }
-.doc-badge { font-family: var(--font-serif); font-size: 13px; font-weight: 700; color: var(--terracotta); background: var(--active-bg); border-radius: 8px; padding: 8px 10px; letter-spacing: 0.04em; }
-.doc-info { display: flex; flex-direction: column; gap: 2px; }
-.doc-name { font-size: 16px; font-weight: 700; color: var(--ink); }
+.doc-badge { font-family: var(--font-serif); font-size: 13px; font-weight: 700; color: var(--on-active-bg); background: var(--active-bg); border-radius: 8px; padding: 8px 10px; letter-spacing: 0.04em; }
+/* min-width: 0 e overflow-wrap: publicar é «commit de um PDF». Um nome de
+   ficheiro longo sem espaços nem hífenes não cabe, e sem isto empurrava a linha
+   para fora do ecrã — a página inteira passava a deslizar na horizontal. */
+.doc-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.doc-name { font-size: 16px; font-weight: 700; color: var(--ink); overflow-wrap: anywhere; }
 .doc-meta { font-size: 13px; color: var(--muted); }
 .doc-dl { margin-left: auto; font-size: 14px; font-weight: 700; color: var(--terracotta); }
 .status-msg { font-size: 16px; color: var(--muted); }
