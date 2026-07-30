@@ -275,7 +275,7 @@
       },
       "subtitle": {
         "displayName": "Subtitle",
-        "purpose": "Card titles, document group headings, governance body names, timeline years."
+        "purpose": "Card titles, box and document-group headings, contribution option titles (24px)."
       },
       "quote": {
         "displayName": "Quote",
@@ -316,6 +316,22 @@
       "brand-sub": {
         "displayName": "Brand Sub",
         "purpose": "The header lockup's second line, the association's full name in Stone."
+      },
+      "subtitle-lg": {
+        "displayName": "Subtitle Large",
+        "purpose": "The standalone subhead (28px), e.g. \"Tem alguma dúvida?\"."
+      },
+      "subtitle-sm": {
+        "displayName": "Subtitle Small",
+        "purpose": "Governance body names and timeline year headings (22px)."
+      },
+      "contact": {
+        "displayName": "Contact",
+        "purpose": "Address, telephone and e-mail in Lora 20px — institutional facts, so serif."
+      },
+      "body-xs": {
+        "displayName": "Body Extra Small",
+        "purpose": "Footer text, statistic labels, photo captions, small links, form error (14px)."
       }
     },
     "shadows": [],
@@ -373,7 +389,7 @@
       "refersTo": "input",
       "description": "White ground, strong hairline stroke, 10px radius. The 2px terracotta focus ring is the site-wide :focus-visible rule; the placeholder uses Stone at 5.6:1 on white.",
       "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">O seu endereço eletrónico *</span><input class=\"ds-input\" type=\"email\" placeholder=\"nome@exemplo.pt\"></label>",
-      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; max-width: 340px; } .ds-field-label { font-family: var(--font-sans); font-size: 13.5px; font-weight: 700; color: var(--body); } .ds-input { font-family: var(--font-sans); font-size: 15.5px; color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px 14px; } .ds-input::placeholder { color: var(--muted); } .ds-input:focus { border-color: var(--terracotta); } .ds-input:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }"
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 6px; max-width: 340px; } .ds-field-label { font-family: var(--font-sans); font-size: 13.5px; font-weight: 700; color: var(--body); } .ds-input { font-family: var(--font-sans); font-size: 16px; color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: 10px; padding: 12px 14px; } .ds-input::placeholder { color: var(--muted); } .ds-input:focus { border-color: var(--terracotta); } .ds-input:focus-visible { outline: 2px solid var(--terracotta); outline-offset: 2px; }"
     },
     {
       "name": "Navigation Links",
@@ -452,7 +468,7 @@
       },
       {
         "name": "The Snap-To-Role Rule",
-        "body": "New text takes one of the twelve documented roles. If a size feels wrong, change role — do not introduce a value 0.5px from an existing one. The stylesheet carries 22 distinct fixed sizes plus six fluid ranges, with 16 steps between 11.5px and 20px; those sub-pixel neighbours are accumulated drift, and this rule exists to stop them spreading.",
+        "body": "New text takes one of the documented roles, and therefore one of the eleven steps (12, 13, 14, 15, 16, 18, 20, 22, 24, 28, 38px). If a size feels wrong, change role — never introduce an intermediate value. A half-pixel neighbour is not a design decision; nobody can see it, and it makes the scale unenforceable. The stylesheet is currently clean of them, and the design detector will flag the first one reintroduced.",
         "section": "typography"
       },
       {
@@ -479,6 +495,11 @@
         "name": "The Dashed-Means-Absent Rule",
         "body": "A dashed border (1px dashed Stroke) marks missing media — a photo frame with no photograph, which fills with Active Wash and shows an italic caption naming what should be there. This is the visual form of PRODUCT.md's rule that absent evidence is stated, not filled with a stock substitute. Dashed borders mean nothing else; do not use them for emphasis, drafts, or notes.",
         "section": "shapes"
+      },
+      {
+        "name": "The Sixteen-Pixel Input Rule",
+        "body": "Text inputs never drop below 16px. Below that, iOS Safari zooms the viewport on focus, which on a form the visitor is already navigating by keyboard is a real usability failure rather than a cosmetic one.",
+        "section": "typography"
       }
     ],
     "dos": [

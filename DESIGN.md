@@ -35,11 +35,21 @@ typography:
     fontSize: "clamp(28px, 4.5vw, 36px)"
     fontWeight: 600
     lineHeight: 1.2
+  subtitle-lg:
+    fontFamily: "Lora, serif"
+    fontSize: "28px"
+    fontWeight: 600
+    lineHeight: 1.25
   subtitle:
     fontFamily: "Lora, serif"
     fontSize: "24px"
     fontWeight: 600
     lineHeight: 1.3
+  subtitle-sm:
+    fontFamily: "Lora, serif"
+    fontSize: "22px"
+    fontWeight: 600
+    lineHeight: 1.35
   quote:
     fontFamily: "Lora, serif"
     fontSize: "clamp(22px, 3.5vw, 30px)"
@@ -51,21 +61,31 @@ typography:
     fontSize: "38px"
     fontWeight: 600
     letterSpacing: "0.06em"
+  contact:
+    fontFamily: "Lora, serif"
+    fontSize: "20px"
+    fontWeight: 400
+    lineHeight: 1.5
   lead:
     fontFamily: "Karla, sans-serif"
-    fontSize: "17.5px"
+    fontSize: "18px"
     fontWeight: 400
     lineHeight: 1.65
   body:
     fontFamily: "Karla, sans-serif"
-    fontSize: "16.5px"
+    fontSize: "16px"
     fontWeight: 400
     lineHeight: 1.7
   body-sm:
     fontFamily: "Karla, sans-serif"
-    fontSize: "15.5px"
+    fontSize: "15px"
     fontWeight: 400
     lineHeight: 1.65
+  body-xs:
+    fontFamily: "Karla, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.6
   action:
     fontFamily: "Karla, sans-serif"
     fontSize: "16px"
@@ -78,19 +98,19 @@ typography:
     textTransform: "uppercase"
   label-sm:
     fontFamily: "Karla, sans-serif"
-    fontSize: "12.5px"
+    fontSize: "12px"
     fontWeight: 700
     letterSpacing: "0.1em"
     textTransform: "uppercase"
   brand:
     fontFamily: "Lora, serif"
-    fontSize: "19px"
+    fontSize: "20px"
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: "0.01em"
   brand-sub:
     fontFamily: "Karla, sans-serif"
-    fontSize: "11.5px"
+    fontSize: "12px"
     fontWeight: 400
     lineHeight: 1.15
     letterSpacing: "0.04em"
@@ -169,7 +189,7 @@ components:
   input:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.ink}"
-    typography: "{typography.body-sm}"
+    typography: "{typography.body}"
     rounded: "{rounded.sm}"
     padding: "12px 14px"
   doc-row:
@@ -253,23 +273,27 @@ Both load from Google Fonts. Lora is requested at 400/500/600/700 plus italic 40
 
 - **Display** (Lora 600, `clamp(36px, 6vw, 56px)`, 1.12): The home page headline. One per site.
 - **Headline** (Lora 600, `clamp(32px, 5.5vw, 48px)`, 1.15, max 760px): Every interior page's `h1`.
-- **Title** (Lora 600, `clamp(28px, 4.5vw, 36px)`, 1.2): Section headings. A slightly smaller variant (`clamp(26px, 4vw, 32px)`, white) titles the terracotta contribution band.
-- **Subtitle** (Lora 600, 21–30px): Card titles (24px), box and document-group titles (26px), the contribution option titles (`clamp(24px, 3.5vw, 30px)`), governance body names (21px, with a 2px terracotta underline), and the timeline year headings (22px, set in terracotta).
-- **Quote** (Lora italic 500, `clamp(22px, 3.5vw, 30px)`, 1.45, max 820px): The mission statement on ink. A smaller sibling (Lora italic 400, 17px, centered) carries the motto in the home page logo card.
-- **Figure** (Lora 600): Institutional numerals — statistic numbers (38px, cream on ink), the NIF display (`clamp(26px, 5vw, 32px)`, `0.06em` tracking), and contact details (20px, 400 weight).
-- **Lead** (Karla 400, 17.5px, 1.65, max 620px): The paragraph under every page title. The home page uses 18px at max 520px.
-- **Body** (Karla 400, 16.5px, 1.7): Running prose. The historical narrative relaxes to 1.75.
-- **Body Small** (Karla 400, 15–15.5px, 1.6–1.65): Card text, info boxes, governance member names.
+- **Title** (Lora 600, `clamp(28px, 4.5vw, 36px)`, 1.2): Section headings. A slightly smaller variant (`clamp(24px, 4vw, 32px)`, white) titles the terracotta contribution band.
+- **Subtitle** (Lora 600, three steps): 28px for the standalone subhead; 24px for card titles, box and document-group titles, and the contribution option titles (`clamp(24px, 3.5vw, 30px)`); 22px for governance body names (with a 2px terracotta underline) and the timeline year headings (set in terracotta).
+- **Quote** (Lora italic 500, `clamp(22px, 3.5vw, 30px)`, 1.45, max 820px): The mission statement on ink. A smaller sibling (Lora italic 400, 18px, centered) carries the motto in the home page logo card.
+- **Figure** (Lora 600): Institutional numerals — statistic numbers (38px, cream on ink), the NIF display (`clamp(24px, 5vw, 32px)`, `0.06em` tracking), and contact details (20px, 400 weight).
+- **Lead** (Karla 400, 18px, 1.65, max 620px): The paragraph under every page title. The home page uses the same step at max 520px.
+- **Body** (Karla 400, 16px, 1.7): Running prose. The historical narrative relaxes to 1.75.
+- **Body Small** (Karla 400, 15px, 1.6–1.65): Card text, info boxes, governance member names.
+- **Body Extra Small** (Karla 400, 14px, 1.6): Footer text and addresses, statistic labels, the photo-frame caption, small accent links, the form error.
 - **Action** (Karla 700, 16px): Buttons and accent links. 15px for in-card links, 14px for small links.
+- **Contact** (Lora 400, 20px, 1.5): Address, telephone and e-mail on the contactos page — serif, because they are institutional facts.
 - **Label** (Karla 700, 13px, `0.14em`, uppercase): The eyebrow. Terracotta on light grounds, Warm Sand on ink, `rgba(255,255,255,0.75)` on terracotta.
-- **Label Small** (Karla 700, 12.5px, `0.1em`, uppercase, Ash): Field labels for data — Morada, Telefone, NIF, and the officer roles in governance cards.
-- **Brand** (Lora 700, 19px, `0.01em`) over **Brand Sub** (Karla 400, 11.5px, `0.04em`, Stone): The header lockup only. A two-line pairing with no sibling elsewhere in the ramp — do not reuse either step for body content.
+- **Label Small** (Karla 700, 12px, `0.1em`, uppercase, Ash): Field labels for data — Morada, Telefone, NIF, and the officer roles in governance cards.
+- **Brand** (Lora 700, 20px, `0.01em`) over **Brand Sub** (Karla 400, 12px, `0.04em`, Stone): The header lockup only. A two-line pairing with no sibling elsewhere in the ramp — do not reuse either step for body content.
 
-**The implemented scale is looser than the roles above.** The stylesheet carries 22 distinct fixed sizes plus six fluid `clamp()` ranges, and 16 of those steps fall between 11.5px and 20px — several separated by only 0.5px (15 / 15.5 / 16 / 16.5 / 17 / 17.5 / 18). The twelve roles documented here are the canonical steps; the extra values are accumulated drift, not intent. New type snaps to a role rather than adding another neighbour.
+**The scale is eleven fixed steps: 12, 13, 14, 15, 16, 18, 20, 22, 24, 28, 38px**, plus the fluid `clamp()` ranges above. It previously carried 21 fixed sizes, 16 of them between 11.5px and 20px and several separated by only 0.5px (15 / 15.5 / 16 / 16.5 / 17 / 17.5 / 18). Those half-pixel neighbours were accumulated accident, not intent — imperceptible in use and impossible to apply consistently — so each was snapped onto the nearest real step. The steps above are now the whole vocabulary.
 
 ### Named Rules
 
-**The Snap-To-Role Rule.** New text takes one of the twelve documented roles. If a size feels wrong, change role — do not introduce a value 0.5px from an existing one. The sub-pixel neighbours already in the stylesheet are the thing this rule exists to stop spreading.
+**The Snap-To-Role Rule.** New text takes one of the documented roles, and therefore one of the eleven steps. If a size feels wrong, change role — never introduce an intermediate value. A half-pixel neighbour is not a design decision; nobody can see it, and it makes the scale unenforceable. The stylesheet is currently clean of them, and the design detector will flag the first one reintroduced.
+
+**The Sixteen-Pixel Input Rule.** Text inputs never drop below 16px. Below that, iOS Safari zooms the viewport on focus, which on a form the visitor is already navigating by keyboard is a real usability failure rather than a cosmetic one.
 
 **The Serif Numeral Rule.** Any figure carrying institutional weight is set in Lora, never Karla: the founding years, the statistics band, the NIF, the telephone number, the address. Numbers are evidence in this product, and the serif is what marks them as such. Karla numerals are for incidental data only — file sizes, dates in metadata.
 
