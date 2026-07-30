@@ -13,7 +13,7 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script src="site.js" defer></script>
 </head>
@@ -30,19 +30,10 @@
     </div>
   </section>
 
-  <!-- Lista de documentos (preenchida por site.js a partir do GitHub) -->
+  <!-- Lista de documentos (gerada por build.py a partir da pasta documentos/) -->
   <section class="section--white">
-    <div id="docs-app" class="container container--narrow pad-docs stack gap-48">
-      <p class="status-msg status-msg--faint" data-docs-state="loading">A carregar documentos…</p>
-      <div class="note-dashed note-dashed--roomy" data-docs-state="unconfigured" hidden>
-        <p><strong>Configuração necessária:</strong> indique o repositório GitHub (formato <span class="mono">utilizador/repositorio</span>) na constante <span class="mono">REPO</span> do ficheiro <span class="mono">site.js</span>. Os PDF colocados na pasta <span class="mono">documentos/</span> do repositório aparecerão aqui automaticamente.</p>
-      </div>
-      <p class="status-msg" data-docs-state="empty" hidden>De momento não há documentos publicados.</p>
-      <p class="status-msg" data-docs-state="error" hidden>Não foi possível carregar a lista de documentos. Tente novamente mais tarde ou contacte-nos através de <a href="mailto:aic.funchal@gmail.com" class="text-link">aic.funchal@gmail.com</a>.</p>
-      <div id="docs-groups" class="stack gap-48" hidden></div>
-      <div class="note-dashed" hidden>
-        <p><strong>Como publicar documentos:</strong> basta adicionar (ou remover) ficheiros PDF na pasta <span class="mono">documentos/</span> do repositório GitHub — esta página atualiza-se automaticamente. Nomes com «Estatutos» ou «Relatório/Contas» são agrupados nas respetivas secções.</p>
-      </div>
+    <div class="container container--narrow pad-docs stack gap-48">
+      <!-- docs-list -->
     </div>
   </section>
 

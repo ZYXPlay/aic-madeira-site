@@ -1,2 +1,10 @@
 dist/
 .DS_Store
+
+# Agent tooling — installed per developer, not vendored.
+.claude/
+.github/hooks/
+.github/skills/
+.impeccable/hook.cache.json
+.impeccable/config.local.json
+.impeccable/live/
