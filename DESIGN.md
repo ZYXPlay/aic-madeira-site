@@ -7,7 +7,6 @@ colors:
   ink: "#2E2A26"
   body: "#4A443E"
   muted: "#6F675E"
-  muted-2: "#8F867B"
   terracotta: "#C0452B"
   terracotta-dark: "#A63A23"
   border: "#EAE2D6"
@@ -244,9 +243,8 @@ A warm, low-contrast neutral field — paper rather than white — carrying a si
 - **White Surface** (`{colors.surface}`): Raised content against Aged Paper — cards, governance cards, inset boxes, inputs, and full sections that need to feel like a fresh page. Never the page ground.
 - **Ink** (`{colors.ink}`): All headings, the strongest body text, and the dark ground for the statistics band, the mission quote, the dark option card, and the footer. A warm near-black (13.3:1 on Aged Paper), never true black.
 - **Warm Graphite** (`{colors.body}`): Emphasized running text — the historical narrative, the copy inside cards on light grounds, form field labels.
-- **Stone** (`{colors.muted}`): The default color for leads and prose. 5.2:1 on Aged Paper.
-- **Ash** (`{colors.muted-2}`): Metadata only — italic captions, file sizes, uppercase mini-labels, the footer's NIF line and column headings.
-- **Parchment** (`{colors.on-dark}`) and **Parchment Muted** (`{colors.on-dark-muted}`): The text pair for ink grounds — footer links and addresses at 9.4:1, statistic labels and prose on dark at 6.4:1.
+- **Stone** (`{colors.muted}`): The lightest text color permitted on light grounds, and the floor of the neutral ramp. Carries leads and prose (5.2:1 on Aged Paper), and every piece of secondary text — italic captions, uppercase mini-labels, file sizes, the photo-frame caption.
+- **Parchment** (`{colors.on-dark}`) and **Parchment Muted** (`{colors.on-dark-muted}`): The text pair for ink grounds — footer links and addresses at 9.4:1, and everything secondary at 6.4:1: statistic labels, prose on dark, footer column headings, the NIF line, and mini-labels inside the dark option card.
 
 ### Semantic
 
@@ -258,14 +256,14 @@ A warm, low-contrast neutral field — paper rather than white — carrying a si
 
 **The Signal, Not Surface Rule.** Terracotta Red is a signal color. It may cover a large area exactly once per page, as a full-bleed band. Everywhere else it appears at the scale of a label, a line of text, a badge, or a pill — never as a card fill, never as a section background twice.
 
-**The Ash Ceiling Rule.** Ash (`{colors.muted-2}`) is metadata, not text. Measured, it reaches only 3.35:1 on Aged Paper and 3.97:1 on Ink — both below the WCAG 2.1 AA threshold of 4.5:1 that PRODUCT.md records as binding. The document list's file sizes have already been moved to Stone; the remaining uses (italic captions, mini-labels, the footer's NIF line and column headings) are inherited and still need remediation. Do not add new ones. For any text a visitor must read, Stone is the lightest permitted value on light grounds and Parchment Muted on dark.
+**The Two-Floor Rule.** The neutral text ramp has exactly one floor per ground, and nothing lighter exists: **Stone** on light grounds, **Parchment Muted** on ink. There is deliberately no third, quieter step. A previous token, Ash (`#8F867B`), served that role at 3.35:1 on Aged Paper and 3.97:1 on Ink — both under the 4.5:1 threshold PRODUCT.md records as binding — so it was removed from the system rather than merely discouraged. If secondary text needs to recede further, reduce its size, weight, or tracking; never its contrast.
 
 ## Typography
 
 **Display Font:** Lora (`serif` fallback) — headings, quotations, and institutionally significant figures
 **Body Font:** Karla (`sans-serif` fallback) — running text, labels, navigation, controls
 
-Both load from Google Fonts. Lora is requested at 400/500/600/700 plus italic 400/500; Karla at 400/500/600/700, though **Karla 600 is requested and never used** — it can be dropped from the font URL.
+Both load from Google Fonts, and the request carries only the faces the stylesheet actually uses: Lora roman 400/600/700 plus italic 400/500, and Karla 400/500/700. Roman Lora 500 and Karla 600 were previously requested and never used; both are gone. **Adding a weight to the URL requires a declaration that uses it**, and removing the last user of a weight means removing it from the URL.
 
 **Character:** A transitional serif with a slight calligraphic warmth against a compact, slightly condensed humanist sans. Lora carries the institution's age and formality; Karla keeps the practical layer legible and unfussy. The pairing is deliberately conventional — the design is not trying to be interesting where the content should be.
 
@@ -284,7 +282,7 @@ Both load from Google Fonts. Lora is requested at 400/500/600/700 plus italic 40
 - **Action** (Karla 700, 16px): Buttons and accent links. 15px for in-card links, 14px for small links.
 - **Contact** (Lora 400, 20px, 1.5): Address, telephone and e-mail on the contactos page — serif, because they are institutional facts.
 - **Label** (Karla 700, 13px, `0.14em`, uppercase): The eyebrow. Terracotta on light grounds, Warm Sand on ink, `rgba(255,255,255,0.75)` on terracotta.
-- **Label Small** (Karla 700, 12px, `0.1em`, uppercase, Ash): Field labels for data — Morada, Telefone, NIF, and the officer roles in governance cards.
+- **Label Small** (Karla 700, 12px, `0.1em`, uppercase, Stone — Parchment Muted on ink): Field labels for data — Morada, Telefone, NIF, and the officer roles in governance cards.
 - **Brand** (Lora 700, 20px, `0.01em`) over **Brand Sub** (Karla 400, 12px, `0.04em`, Stone): The header lockup only. A two-line pairing with no sibling elsewhere in the ramp — do not reuse either step for body content.
 
 **The scale is eleven fixed steps: 12, 13, 14, 15, 16, 18, 20, 22, 24, 28, 38px**, plus the fluid `clamp()` ranges above. It previously carried 21 fixed sizes, 16 of them between 11.5px and 20px and several separated by only 0.5px (15 / 15.5 / 16 / 16.5 / 17 / 17.5 / 18). Those half-pixel neighbours were accumulated accident, not intent — imperceptible in use and impossible to apply consistently — so each was snapped onto the nearest real step. The steps above are now the whole vocabulary.
@@ -387,7 +385,7 @@ Four centered figures on Ink, each a Lora 600 38px numeral in Aged Paper above a
 
 ### Photo Frame
 
-A fixed-height region (380px, 340px on the history page) with `{rounded.2xl}` radius, Active Wash fill, and a `1px dashed` Border Strong edge, centering an italic Ash caption that names the intended photograph. When an image is present it covers the frame absolutely with `object-fit: cover`; a script hides broken images so the frame and its caption return. This is the system's mechanism for honestly declaring absent imagery — the most product-specific component here.
+A fixed-height region (380px, 340px on the history page) with `{rounded.2xl}` radius, Active Wash fill, and a `1px dashed` Border Strong edge, centering an italic Stone caption that names the intended photograph. When an image is present it covers the frame absolutely with `object-fit: cover`; a script hides broken images so the frame and its caption return. This is the system's mechanism for honestly declaring absent imagery — the most product-specific component here.
 
 ### Document Row
 
@@ -408,11 +406,12 @@ Rendered at build time by `build.py` from the contents of `documentos/` — no J
 - **Do** let new interactive elements inherit the site-wide `:focus-visible` ring (2px Terracotta Red at 2px offset), and check it clears 3:1 against whatever ground it lands on — invert it to white or Parchment on dark and terracotta grounds.
 - **Do** state absent imagery with the dashed photo frame and a caption naming what belongs there.
 - **Do** carry `text-wrap: pretty` onto any new display or prose class.
+- **Do** keep text inputs at 16px or above, so iOS Safari does not zoom the viewport on focus.
 
 ### Don't:
 
 - **Don't** add a `box-shadow`. The system is flat; change the ground or add a border instead.
-- **Don't** use Ash (`{colors.muted-2}`) for anything a visitor needs to read — it measures 3.35:1 on Aged Paper, below the 4.5:1 threshold. Stone is the lightest permitted text color on light grounds.
+- **Don't** introduce a neutral lighter than Stone on light grounds or Parchment Muted on ink. Those are the floors; recede with size or weight instead of contrast.
 - **Don't** fill a card or a second section with Terracotta Red. One full-bleed terracotta band per page is the ceiling; everywhere else it is a signal at label scale.
 - **Don't** use White Surface as the page ground. Aged Paper is the resting state; white is for raised content.
 - **Don't** introduce a second accent hue, or extend the success green into a warning/info family. One accent, one semantic pair.
